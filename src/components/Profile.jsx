@@ -1,11 +1,12 @@
 import React from 'react';
+import classes from './Profile.module.css';
 
 const Profile = () => {
-    return <div className="content">
+    return <div className={classes.content}>
         <div>
-            <img id="contentImg" src="https://s1.1zoom.me/b5050/297/Canada_Mountains_Scenery_488936_1920x1200.jpg" />
+            <img className={`${classes.content} ${classes.wallpaper}`} src="https://s1.1zoom.me/b5050/297/Canada_Mountains_Scenery_488936_1920x1200.jpg" />
         </div>
-        <div>
+        <div className={classes.item}>
             ava + description
     </div>
         <div>
