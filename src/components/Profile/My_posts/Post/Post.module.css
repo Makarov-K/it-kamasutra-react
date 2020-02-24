@@ -1,0 +1,13 @@
+.item {
+    display: flex;
+}
+
+.item img {
+    width: 50px;
+    border-radius: 15px;
+}
+
+.like {
+    display: flex;
+    flex-direction: column;
+}
