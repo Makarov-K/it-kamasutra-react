@@ -12,7 +12,7 @@ const My_posts = () => {
                 <button>Add post</button>
             </div>
             <Post message="Hi people!" likes_quantity="15"/>
-            <Post message="This is looks much easier on videos :(" likes_quantity="20"/>
+            <Post message="It's looks much easier on videos :(" likes_quantity="20"/>
         </div>
     );
 }
