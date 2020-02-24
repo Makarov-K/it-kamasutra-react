@@ -1,0 +1,12 @@
+.ava img{
+    width: 60px;
+}
+
+.description {
+    background-color: white;
+}
+
+.wrapper {
+    display: flex;
+}
+
