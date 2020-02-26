@@ -1,0 +1,11 @@
+.my_posts {
+    padding: 15px;
+}
+
+.new_post {
+    padding: 15px;
+}
+
+.new_post button {
+    display: block;
+}

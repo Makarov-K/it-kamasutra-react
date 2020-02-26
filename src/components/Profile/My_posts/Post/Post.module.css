@@ -1,8 +1,8 @@
-.item {
+.post {
     display: flex;
 }
 
-.item img {
+.post img {
     width: 50px;
     border-radius: 15px;
 }

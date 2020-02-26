@@ -1,0 +1,27 @@
+.profile_info {
+
+}
+
+.wallpaper img {
+    height: 60%;
+}
+
+.ava_description {
+    display: flex;
+    padding: 15px;
+}
+
+.ava img {
+    width: 80px;
+    border-radius: 10px;
+}
+
+.description {
+    background-color: white;
+    margin-left: 50px;
+}
+
+
+
+
+
