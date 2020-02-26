@@ -1,0 +1,10 @@
+.wrapper img{
+    width: 50px;
+    border-radius: 15px;
+    padding-right: 5px;
+}
+
+.wrapper {
+    display: flex;
+    padding: 10px;
+}

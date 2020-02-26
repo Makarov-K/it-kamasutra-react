@@ -1,8 +1,14 @@
 .sidebar {
     grid-area: s;
     background-color: teal;
+    padding: 20px;
   }
 
-  .item {
-    color: white;
+  .item a {
+      text-decoration: none;
+      color: white;
+  }
+
+  .item a.activeLink {
+      color: gold;
   }
