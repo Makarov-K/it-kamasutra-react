@@ -12,3 +12,5 @@ const Dialog = (props) => {
 }
 
 export default Dialog;
+
+//https://avatars.mds.yandex.net/get-pdb/197794/d3616c08-1c41-4b66-9e35-40ab3d0857fa/s1200
