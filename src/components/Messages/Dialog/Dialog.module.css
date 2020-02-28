@@ -9,3 +9,9 @@
     padding-right: 5px;
 }
 
+.dialog a {
+    text-decoration: none;
+    color: darkgreen;
+}
+
+

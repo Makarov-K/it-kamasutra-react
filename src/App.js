@@ -8,6 +8,7 @@ import Messages from "./components/Messages/Messages";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import Friends from './components/Friends/Friends';
 
 const App = (props) => {
     return (
@@ -16,11 +17,14 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className="content">
-                    <Route path='/profile' render={() => <Profile posts={props.posts}/>}/>
-                    <Route path='/messages' render={() => <Messages dialogs={props.dialogs} messages={props.messages}/>}/>
+                    <Route path='/profile'
+                           render={() => <Profile state={props.state.profilePage}/>}/>
+                    <Route path='/messages'
+                           render={() => <Messages state={props.state.messagesPage}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
+                    <Route path='/friends' component={Friends}/>
                 </div>
             </div>
         </BrowserRouter>
