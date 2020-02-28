@@ -3,10 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Messages/Dialog/Dialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Dialog/Dialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Messages/Message/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Message/Message.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Music/Music.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Music/Music.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/News/News.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/News/News.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/My_posts/My_posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My_posts/My_posts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/My_posts/My_posts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My_posts/My_posts.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/My_posts/Post/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My_posts/Post/Post.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile_Info/Profile_Info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile_Info/Profile_Info.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Settings/Settings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings/Settings.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +92,8 @@
       <workItem from="1582723240971" duration="3635000" />
       <workItem from="1582750525572" duration="2418000" />
       <workItem from="1582789858995" duration="5123000" />
+      <workItem from="1582902161849" duration="1371000" />
+      <workItem from="1582903654207" duration="504000" />
     </task>
     <servers />
   </component>
