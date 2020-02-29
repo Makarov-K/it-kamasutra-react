@@ -12,7 +12,6 @@ import Friends from './components/Friends/Friends';
 
 const App = (props) => {
     return (
-        <BrowserRouter>
             <div className="wrapper">
                 <Header/>
                 <Navbar/>
@@ -24,10 +23,10 @@ const App = (props) => {
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
-                    <Route path='/friends' component={Friends}/>
+                    <Route path='/friends'
+                           render={() => <Friends friends={props.state.sidebar.friends}/>}/>
                 </div>
             </div>
-        </BrowserRouter>
     );
 }
 

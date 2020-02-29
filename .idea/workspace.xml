@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Friends/Friends.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Friends/Friends.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/Dialog/Dialog.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Dialog/Dialog.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Friends/Friends.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/Friends.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Messages/Messages.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Messages.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/My_posts/My_posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My_posts/My_posts.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +93,9 @@
       <workItem from="1582902161849" duration="1371000" />
       <workItem from="1582903654207" duration="504000" />
       <workItem from="1582905298880" duration="8235000" />
-      <workItem from="1582916812889" duration="324000" />
+      <workItem from="1582916812889" duration="391000" />
+      <workItem from="1582921029639" duration="3386000" />
+      <workItem from="1582999308639" duration="1839000" />
     </task>
     <servers />
   </component>
