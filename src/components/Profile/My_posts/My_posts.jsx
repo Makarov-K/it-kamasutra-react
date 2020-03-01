@@ -8,10 +8,11 @@ const My_posts = (props) => {
     let PostList = props.posts.map(post => <Post message={post.message} likes={post.likes}/>);
 
     let newPostElement = React.createRef();
+
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text);
-    }
+        props.addPost(text);
+    };
 
     return (
         <div className={style.my_posts}>
@@ -25,6 +26,6 @@ const My_posts = (props) => {
             </div>
         </div>
     );
-}
+};
 
 export default My_posts;
