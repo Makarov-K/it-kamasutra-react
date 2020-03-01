@@ -13,21 +13,29 @@ import Friends from './components/Friends/Friends';
 
 const App = (props) => {
     return (
-            <div className="wrapper">
-                <Header/>
-                <Navbar/>
-                <div className="content">
-                    <Route path='/profile'
-                           render={() => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
-                    <Route path='/messages'
-                           render={() => <Messages state={props.state.messagesPage}/>}/>
-                    <Route path='/news' component={News}/>
-                    <Route path='/music' component={Music}/>
-                    <Route path='/settings' component={Settings}/>
-                    <Route path='/friends'
-                           render={() => <Friends friends={props.state.sidebar.friends}/>}/>
-                </div>
+        <div className="wrapper">
+            <Header/>
+            <Navbar/>
+            <div className="content">
+                <Route path='/profile'
+                       render={() => <Profile
+                           profilePage={props.state.profilePage}
+                           addPost={props.addPost}
+                           changeNewPostText={props.changeNewPostText}
+                       />}/>
+                <Route path='/messages'
+                       render={() => <Messages
+                           messagesPage={props.state.messagesPage}
+                           enterNewMessage={props.enterNewMessage}
+                           sendMessage={props.sendMessage}
+                       />}/>
+                <Route path='/news' component={News}/>
+                <Route path='/music' component={Music}/>
+                <Route path='/settings' component={Settings}/>
+                <Route path='/friends'
+                       render={() => <Friends friends={props.state.sidebar.friends}/>}/>
             </div>
+        </div>
     );
 }
 

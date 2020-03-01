@@ -7,13 +7,18 @@ import Message from "./Message/Message";
 
 const Messages = (props) => {
 
-    let DialogList = props.state.dialogs.map( dialog => <Dialog name={dialog.name} id={dialog.id}/>);
-    let MessageList = props.state.messages.map( message => <Message message={message.message}/>);
+    let DialogList = props.messagesPage.dialogs.map( dialog => <Dialog name={dialog.name} id={dialog.id}/>);
+    let MessageList = props.messagesPage.messages.map( message => <Message message={message.message}/>);
 
     let sendMessageElement = React.createRef();
+
     let sendMessage = () => {
-        let text = sendMessageElement.current.value;
-        alert(text);
+        props.sendMessage();
+    };
+
+    let enterNewMessage = () => {
+        let newMessageText = sendMessageElement.current.value;
+        props.enterNewMessage(newMessageText);
     }
 
     return (
@@ -22,10 +27,18 @@ const Messages = (props) => {
                 {DialogList}
             </div>
             <div className={style.messages}>
+                <div>
                 {MessageList}
+                </div>
                 <div className={style.sendMessage}>
-                <textarea ref={sendMessageElement}></textarea>
-                <button onClick={sendMessage}>Send message</button>
+                <textarea
+                    ref={sendMessageElement}
+                    value={props.messagesPage.newMessageText}
+                    onChange={enterNewMessage}
+                />
+                <button
+                    onClick={sendMessage}
+                >Send message</button>
                 </div>
             </div>
         </div>
