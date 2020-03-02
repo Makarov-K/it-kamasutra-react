@@ -1,4 +1,6 @@
-import rerenderEntireTree from "../render";
+let rerenderEntireTree = () => {
+    console.log('state has been changed');
+};
 
 let state = {
     profilePage: {
@@ -28,7 +30,7 @@ let state = {
     }
 };
 
-export let addPost = () => {
+export const addPost = () => {
         let newPost = {
             id: 3,
             message: state.profilePage.newPostText,
@@ -36,27 +38,31 @@ export let addPost = () => {
         };
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree(state, addPost, changeNewPostText, enterNewMessage, sendMessage);
+    rerenderEntireTree(state);
 };
 
-export let changeNewPostText = (newPostText) => {
+export const changeNewPostText = (newPostText) => {
     state.profilePage.newPostText = newPostText;
-    rerenderEntireTree(state, addPost, changeNewPostText, enterNewMessage, sendMessage);
+    rerenderEntireTree(state);
 };
 
-export let enterNewMessage = (newMessageText) => {
+export const enterNewMessage = (newMessageText) => {
     state.messagesPage.newMessageText = newMessageText;
-    rerenderEntireTree(state, addPost, changeNewPostText, enterNewMessage, sendMessage);
+    rerenderEntireTree(state);
 };
 
-export let sendMessage = () => {
+export const sendMessage = () => {
     let newMessage = {
         id: 4,
         message: state.messagesPage.newMessageText
     };
     state.messagesPage.messages.push(newMessage);
     state.messagesPage.newMessageText = '';
-    rerenderEntireTree(state, addPost, changeNewPostText, enterNewMessage, sendMessage);
+    rerenderEntireTree(state);
 }
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
+};
 
 export default state;
