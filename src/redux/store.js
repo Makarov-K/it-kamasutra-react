@@ -26,10 +26,17 @@ let store = {
             ]
         }
     },
+    _callSubscriber() {
+        console.log('state has been changed');
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
     getState() {
         return this._state;
     },
-    addPost() {
+
+    /*addPost() {
         let newPost = {
             id: 3,
             message: this._state.profilePage.newPostText,
@@ -56,12 +63,33 @@ let store = {
         this._state.messagesPage.messages.push(newMessage);
         this._state.messagesPage.newMessageText = '';
         this._callSubscriber();
-    },
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    },
-    _callSubscriber() {
-        console.log('state has been changed');
+    },*/
+
+    dispatch(action) {
+        if(action.type === 'CHANGE-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newPostText;
+            this._callSubscriber();
+        } else if(action.type === 'ADD-POST'){
+            let newPost = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                likes: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber();
+        } else if(action.type === 'ENTER-NEW-MESSAGE'){
+            this._state.messagesPage.newMessageText = action.newMessageText;
+            this._callSubscriber();
+        } else if(action.type === 'SEND-MESSAGE'){
+            let newMessage = {
+                id: 4,
+                message: this._state.messagesPage.newMessageText
+            };
+            this._state.messagesPage.messages.push(newMessage);
+            this._state.messagesPage.newMessageText = '';
+            this._callSubscriber();
+        }
     }
 };
 

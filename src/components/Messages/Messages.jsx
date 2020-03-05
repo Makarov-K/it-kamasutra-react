@@ -13,13 +13,15 @@ const Messages = (props) => {
     let sendMessageElement = React.createRef();
 
     let sendMessage = () => {
-        props.sendMessage();
+        let action = {type: 'SEND-MESSAGE'}
+        props.dispatch(action);
     };
 
     let enterNewMessage = () => {
-        let newMessageText = sendMessageElement.current.value;
-        props.enterNewMessage(newMessageText);
-    }
+        let newText = sendMessageElement.current.value;
+        let action = {type: 'ENTER-NEW-MESSAGE', newMessageText: newText}
+        props.dispatch(action);
+    };
 
     return (
         <div className={style.wrapper}>
