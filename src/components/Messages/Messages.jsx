@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Messages.module.css';
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-
+import {enterNewMessageActionCreator, sendMessageActionCreator} from "../../redux/store";
 
 
 const Messages = (props) => {
@@ -13,13 +13,13 @@ const Messages = (props) => {
     let sendMessageElement = React.createRef();
 
     let sendMessage = () => {
-        let action = {type: 'SEND-MESSAGE'}
+        let action = sendMessageActionCreator();
         props.dispatch(action);
     };
 
     let enterNewMessage = () => {
         let newText = sendMessageElement.current.value;
-        let action = {type: 'ENTER-NEW-MESSAGE', newMessageText: newText}
+        let action = enterNewMessageActionCreator(newText);
         props.dispatch(action);
     };
 

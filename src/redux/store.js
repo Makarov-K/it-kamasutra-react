@@ -1,3 +1,8 @@
+const change_new_post_text = 'CHANGE-NEW-POST-TEXT';
+const add_post = 'ADD-POST';
+const enter_new_message = 'ENTER-NEW-MESSAGE';
+const send_message = 'SEND-MESSAGE';
+
 let store = {
     _state: {
         profilePage: {
@@ -93,4 +98,13 @@ let store = {
     }
 };
 
+export let changeNewPostTextActionCreator = (text) => ({type: change_new_post_text, newPostText: text});
+
+export let addPostActionCreator = () => ({type: add_post});
+
+export let enterNewMessageActionCreator = (text) => ({type: enter_new_message, newMessageText: text});
+
+export let sendMessageActionCreator = () => ({type: send_message});
+
+window.store = store;
 export default store;
