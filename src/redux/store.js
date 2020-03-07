@@ -1,7 +1,5 @@
-const change_new_post_text = 'CHANGE-NEW-POST-TEXT';
-const add_post = 'ADD-POST';
-const enter_new_message = 'ENTER-NEW-MESSAGE';
-const send_message = 'SEND-MESSAGE';
+import profileReducer from "./profile-reducer";
+import messagesReducer from "./messages-reducer";
 
 let store = {
     _state: {
@@ -41,68 +39,13 @@ let store = {
         return this._state;
     },
 
-    /*addPost() {
-        let newPost = {
-            id: 3,
-            message: this._state.profilePage.newPostText,
-            likes: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber();
-    },
-    changeNewPostText(newPostText) {
-
-        this._state.profilePage.newPostText = newPostText;
-        this._callSubscriber();
-    },
-    enterNewMessage(newMessageText) {
-        this._state.messagesPage.newMessageText = newMessageText;
-        this._callSubscriber();
-    },
-    sendMessage() {
-        let newMessage = {
-            id: 4,
-            message: this._state.messagesPage.newMessageText
-        };
-        this._state.messagesPage.messages.push(newMessage);
-        this._state.messagesPage.newMessageText = '';
-        this._callSubscriber();
-    },*/
 
     dispatch(action) {
-        if(action.type === 'CHANGE-NEW-POST-TEXT'){
-            this._state.profilePage.newPostText = action.newPostText;
-            this._callSubscriber();
-        } else if(action.type === 'ADD-POST'){
-            let newPost = {
-                id: 3,
-                message: this._state.profilePage.newPostText,
-                likes: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber();
-        } else if(action.type === 'ENTER-NEW-MESSAGE'){
-            this._state.messagesPage.newMessageText = action.newMessageText;
-            this._callSubscriber();
-        } else if(action.type === 'SEND-MESSAGE'){
-            let newMessage = {
-                id: 4,
-                message: this._state.messagesPage.newMessageText
-            };
-            this._state.messagesPage.messages.push(newMessage);
-            this._state.messagesPage.newMessageText = '';
-            this._callSubscriber();
-        }
+        profileReducer(this._state.profilePage, action);
+        messagesReducer(this._state.messagesPage, action);
+        this._callSubscriber();
     }
 };
-
-export let changeNewPostTextCreator = (text) => ({type: change_new_post_text, newPostText: text});
-export let addPostCreator = () => ({type: add_post});
-
-export let enterNewMessageCreator = (text) => ({type: enter_new_message, newMessageText: text});
-export let sendMessageCreator = () => ({type: send_message});
 
 window.store = store;
 export default store;
