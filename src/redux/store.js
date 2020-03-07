@@ -98,13 +98,11 @@ let store = {
     }
 };
 
-export let changeNewPostTextActionCreator = (text) => ({type: change_new_post_text, newPostText: text});
+export let changeNewPostTextCreator = (text) => ({type: change_new_post_text, newPostText: text});
+export let addPostCreator = () => ({type: add_post});
 
-export let addPostActionCreator = () => ({type: add_post});
-
-export let enterNewMessageActionCreator = (text) => ({type: enter_new_message, newMessageText: text});
-
-export let sendMessageActionCreator = () => ({type: send_message});
+export let enterNewMessageCreator = (text) => ({type: enter_new_message, newMessageText: text});
+export let sendMessageCreator = () => ({type: send_message});
 
 window.store = store;
 export default store;

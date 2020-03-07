@@ -2,24 +2,23 @@ import React from 'react';
 import style from './Messages.module.css';
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import {enterNewMessageActionCreator, sendMessageActionCreator} from "../../redux/store";
+import {enterNewMessageCreator, sendMessageCreator} from "../../redux/store";
 
 
 const Messages = (props) => {
 
-    let DialogList = props.messagesPage.dialogs.map( dialog => <Dialog name={dialog.name} id={dialog.id}/>);
-    let MessageList = props.messagesPage.messages.map( message => <Message message={message.message}/>);
+    let DialogList = props.messagesPage.dialogs.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
+    let MessageList = props.messagesPage.messages.map(message => <Message message={message.message}/>);
 
-    let sendMessageElement = React.createRef();
 
     let sendMessage = () => {
-        let action = sendMessageActionCreator();
+        let action = sendMessageCreator();
         props.dispatch(action);
     };
 
-    let enterNewMessage = () => {
-        let newText = sendMessageElement.current.value;
-        let action = enterNewMessageActionCreator(newText);
+    let enterNewMessage = (event) => {
+        let newText = event.target.value;
+        let action = enterNewMessageCreator(newText);
         props.dispatch(action);
     };
 
@@ -30,17 +29,13 @@ const Messages = (props) => {
             </div>
             <div className={style.messages}>
                 <div>
-                {MessageList}
+                    {MessageList}
                 </div>
                 <div className={style.sendMessage}>
                 <textarea
-                    ref={sendMessageElement}
                     value={props.messagesPage.newMessageText}
-                    onChange={enterNewMessage}
-                />
-                <button
-                    onClick={sendMessage}
-                >Send message</button>
+                    onChange={enterNewMessage}/>
+                    <button onClick={sendMessage}>Send message</button>
                 </div>
             </div>
         </div>
