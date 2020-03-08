@@ -1,12 +1,12 @@
-.my_posts {
+.myPosts {
     padding: 15px;
 }
 
-.new_post {
+.newPost {
     padding: 15px;
 }
 
-.new_post button {
+.newPost button {
     display: block;
 }
 
