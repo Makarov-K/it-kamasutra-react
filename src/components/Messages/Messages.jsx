@@ -15,8 +15,7 @@ const Messages = (props) => {
     };
 
     let onEnterNewMessage = (event) => {
-        let newText = event.target.value;
-        props.changeNewMessageText(newText);
+        props.changeNewMessageText(event.target.value);
     };
 
     return (
