@@ -8,7 +8,7 @@ import MessagesContainer from "./components/Messages/MessagesContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import Friends from './components/Friends/Friends';
+import FriendsContainer from "./components/Friends/FriendsContainer";
 
 
 const App = (props) => {
@@ -18,16 +18,14 @@ const App = (props) => {
             <Navbar/>
             <div className="content">
                 <Route path='/profile'
-                       render={() => <Profile store={props.store}/>}/>
+                       render={() => <Profile/>}/>
                 <Route path='/messages'
-                       render={() => <MessagesContainer store={props.store}/>}/>
+                       render={() => <MessagesContainer/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>
                 <Route path='/friends'
-                       render={() => <Friends
-                           friends={props.state.sidebar.friends}
-                       />}/>
+                       render={() => <FriendsContainer/>}/>
             </div>
         </div>
     );
