@@ -1,0 +1,46 @@
+.user {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas:
+    "ava info"
+    "btn info";
+    padding: 10px;
+}
+
+.user img {
+    grid-area: ava;
+    width: 100px;
+    height: 100px;
+}
+
+.user button {
+    grid-area: btn;
+    width: 100px;
+    height: 30px;
+    align-self: end;
+}
+
+.info {
+    grid-area: info;
+    display: grid;
+    grid-template-areas:
+    "name age cc"
+    "status status status";
+}
+
+.name {
+    grid-area: name;
+}
+
+.age {
+    grid-area: age;
+}
+
+.cc {
+    grid-area: cc;
+}
+
+.status {
+    grid-area: status;
+}
+

@@ -2,8 +2,9 @@
 
 }
 
-.wallpaper img {
-    height: 60%;
+.wallpaper {
+    width: 400px;
+    height: 300px;
 }
 
 .ava_description {
