@@ -22,25 +22,15 @@
 
 .info {
     grid-area: info;
-    display: grid;
-    grid-template-areas:
-    "name age cc"
-    "status status status";
+    display: flex;
+    flex-direction: column;
 }
 
 .name {
-    grid-area: name;
-}
 
-.age {
-    grid-area: age;
-}
-
-.cc {
-    grid-area: cc;
 }
 
 .status {
-    grid-area: status;
+
 }
 
