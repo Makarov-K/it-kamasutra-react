@@ -14,6 +14,7 @@ let Users = (props) => {
         status={user.status}
         followed={user.followed}
         follow={props.follow}
+        setUsers={props.setUsers}
     />);
 
     return (

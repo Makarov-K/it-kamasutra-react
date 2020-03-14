@@ -1,4 +1,5 @@
 let FOLLOW = 'FOLLOW';
+let SET_USERS = 'SET_USERS';
 
 let initialState = {
     users: [
@@ -30,10 +31,16 @@ let usersReducer = (state = initialState, action) => {
                     return user;
                 })
             };
+        case SET_USERS:
+            return {
+                ...state,
+                users: [...state.users, ...action.users]
+            };
         default:
             return state;
     }
 };
 
 export let followAC = (id) => ({type: FOLLOW, id: id});
+export let setUsersAC = (users) => ({type: SET_USERS, users});
 export default usersReducer;
