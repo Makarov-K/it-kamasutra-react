@@ -6,10 +6,10 @@ import MyPostsContainer from "./My_posts/MyPostsContainer";
 const Profile = (props) => {
     return (
         <div className={style.profile}>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer store={props.store}/>
         </div>
     );
-}
+};
 
 export default Profile;

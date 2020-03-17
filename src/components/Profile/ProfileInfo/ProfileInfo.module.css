@@ -3,7 +3,7 @@
 }
 
 .wallpaper {
-    width: 400px;
+    width: 100%;
     height: 300px;
 }
 
@@ -13,14 +13,42 @@
 }
 
 .ava img {
-    width: 80px;
+    width: 150px;
     border-radius: 10px;
 }
 
 .description {
-    background-color: white;
+    background-color: rgba(08,78,0,0.2);
+    border-radius: 10px;
     margin-left: 50px;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "fullName contacts"
+    "aboutMe ."
+    ". lookingForAJob";
 }
+
+.description h3{
+    grid-area: fullName;
+}
+
+.description p {
+    grid-area: aboutMe;
+}
+
+.description img {
+    width: 100px;
+    grid-area: lookingForAJob;
+    justify-self: end;
+}
+
+.contacts {
+    grid-area: contacts;
+    justify-self: end;
+}
+
+
 
 
 

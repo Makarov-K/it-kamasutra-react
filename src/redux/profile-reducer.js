@@ -1,22 +1,26 @@
-const change_new_post_text = 'CHANGE-NEW-POST-TEXT';
-const add_post = 'ADD-POST';
+const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT';
+const ADD_POST = 'ADD-POST';
+const SET_PROFILE = 'SET_PROFILE';
+
 
 let initialState = {
     posts: [
         {id: 1, message: 'Hi people!', likes: 23},
         {id: 2, message: 'It looks much easier on videos :(', likes: 14}
     ],
-        newPostText: ''
+    newPostText: '',
+    profile: null,
+    isLookingForAJob: null
 };
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case change_new_post_text:
+        case CHANGE_NEW_POST_TEXT:
             return {
                 ...state,
                 newPostText: action.newPostText
             };
-        case add_post:
+        case ADD_POST:
             let newPost = {
                 id: 3,
                 message: state.newPostText,
@@ -27,11 +31,17 @@ const profileReducer = (state = initialState, action) => {
                 posts: [...state.posts, newPost],
                 newPostText: ''
             };
+        case SET_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
+            };
         default:
             return state;
     }
 };
 
-export let changeNewPostTextCreator = (text) => ({type: change_new_post_text, newPostText: text});
-export let addPostCreator = () => ({type: add_post});
+export let changeNewPostTextCreator = (text) => ({type: CHANGE_NEW_POST_TEXT, newPostText: text});
+export let addPostCreator = () => ({type: ADD_POST});
+export let setProfile = (profile) => ({type: SET_PROFILE, profile});
 export default profileReducer;
