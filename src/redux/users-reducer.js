@@ -60,11 +60,11 @@ let usersReducer = (state = initialState, action) => {
     }
 };
 
-export let followAC = (id) => ({type: FOLLOW, id: id});
-export let unfollowAC = (id) => ({type: UNFOLLOW, id: id});
-export let setUsersAC = (users) => ({type: SET_USERS, users});
-export let setCurrentPageAC = (pageNumber) => ({type: SET_CURRENT_PAGE, currentPage: pageNumber});
-export let setTotalUsersAC = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers});
-export let setFetchingAC = (isFetching) => ({type: SET_FETCHING, isFetching});
+export let follow = (id) => ({type: FOLLOW, id: id});
+export let unfollow = (id) => ({type: UNFOLLOW, id: id});
+export let setUsers = (users) => ({type: SET_USERS, users});
+export let setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, currentPage: pageNumber});
+export let setTotalUsers = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers});
+export let setFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 
 export default usersReducer;

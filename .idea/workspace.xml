@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Preloader/Preloader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Preloader/Preloader.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/users-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/users-reducer.js" afterDir="false" />
@@ -128,6 +126,7 @@
       <workItem from="1584366288249" duration="1243000" />
       <workItem from="1584377260335" duration="1249000" />
       <workItem from="1584391094485" duration="2205000" />
+      <workItem from="1584436788883" duration="1140000" />
     </task>
     <servers />
   </component>
