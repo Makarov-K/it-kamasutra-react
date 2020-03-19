@@ -31,8 +31,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-let WithRouterProfileContainer = withRouter(ProfileContainer);
 
 export default connect(mapStateToProps,
     {setProfile})
-(WithRouterProfileContainer);
+(withRouter(ProfileContainer));
