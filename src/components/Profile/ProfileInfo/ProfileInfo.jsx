@@ -11,7 +11,7 @@ const ProfileInfo = (props) => {
 
     return (
         <div className={style.profile_info}>
-                <img className={style.wallpaper} src="https://avatars.mds.yandex.net/get-pdb/2126974/bec88ae6-f645-42b3-8478-e5018ad2bf12/s1200"/>
+                <img className={style.wallpaper} src="https://img1.akspic.ru/image/104850-priroda-formirovanie-nacionalnyj_park-vodotok-dostoprimechatelnost-1920x1200.jpg"/>
             <div className={style.ava_description}>
                 <div className={style.ava}>
                     <img src={props.profile.photos.large}/>
