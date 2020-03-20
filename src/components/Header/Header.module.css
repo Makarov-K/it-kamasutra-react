@@ -4,11 +4,23 @@
 }
   
 .header img {
-    width: 60px;
     float: left;
+    max-width: 90px;
+    height: auto;
 }
 
 .loginBlock {
     float: right;
     color: white;
+}
+
+.loginBlock a {
+    color: white;
+}
+
+.loginBlock img {
+    max-width: 60px;
+    height: auto;
+    float: right;
+    padding: 5px;
 }

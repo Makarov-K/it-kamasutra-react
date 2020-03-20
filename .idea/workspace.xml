@@ -138,6 +138,7 @@
       <workItem from="1584613850884" duration="1597000" />
       <workItem from="1584644051750" duration="5633000" />
       <workItem from="1584697674759" duration="3620000" />
+      <workItem from="1584705603807" duration="3817000" />
     </task>
     <servers />
   </component>
@@ -158,17 +159,17 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584482171093">
+    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584705853874">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1584482171093" />
+    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1584705853874" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1583353585783">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1583353585783" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1584644404343">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1584707226389">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1584644404343" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1584707226389" />
   </component>
 </project>
