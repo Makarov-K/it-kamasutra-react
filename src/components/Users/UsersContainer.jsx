@@ -16,7 +16,10 @@ import Preloader from "../Common/Preloader/Preloader";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.setFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`,
+            {
+                withCredentials: true
+            })
             .then(response => {
                 this.props.setFetching(false);
                 this.props.setUsers(response.data.items);
@@ -28,7 +31,10 @@ class UsersContainer extends React.Component {
         this.props.setUsers([]);
         this.props.setFetching(true);
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`,
+            {
+                withCredentials: true
+            })
             .then(response => {
                 this.props.setFetching(false);
                 this.props.setUsers(response.data.items);
