@@ -19,8 +19,8 @@ let Users = (props) => {
             photo={user.photos.small}
             status={user.status}
             followed={user.followed}
-            follow={props.follow}
-            unfollow={props.unfollow}
+            onFollow={props.onFollow}
+            onUnfollow={props.onUnfollow}
         />);
 
         return (
