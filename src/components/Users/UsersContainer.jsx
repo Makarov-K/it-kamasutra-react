@@ -29,10 +29,10 @@ class UsersContainer extends React.Component {
         this.props.setUsers([]);
         this.props.setFetching(true);
         this.props.setCurrentPage(pageNumber);
-        usersApi.getUsersForCurrentPage(pageNumber)
-            .then(items => {
+        usersApi.getUsers(pageNumber)
+            .then(data => {
                 this.props.setFetching(false);
-                this.props.setUsers(items);
+                this.props.setUsers(data.items);
             })
     };
 
