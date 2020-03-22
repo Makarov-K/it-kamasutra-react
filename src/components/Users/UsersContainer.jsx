@@ -6,7 +6,7 @@ import {
     setCurrentPage,
     setFetching,
     setTotalUsers,
-    setUsers,
+    setUsers, toggleFollowingInProgress,
     unfollow
 } from "../../redux/users-reducer";
 import Preloader from "../Common/Preloader/Preloader";
@@ -37,20 +37,24 @@ class UsersContainer extends React.Component {
     };
 
     onFollow = (userId) => {
+        this.props.toggleFollowingInProgress(true, userId);
         usersApi.followChosenUser(userId)
             .then(resultCode => {
             if (resultCode === 0) {
                 this.props.follow(userId);
             }
+            this.props.toggleFollowingInProgress(false, userId);
         });
     };
 
     onUnfollow = (userId) => {
+        this.props.toggleFollowingInProgress(true, userId);
        usersApi.unFollowChosenUser(userId)
         .then(resultCode => {
             if(resultCode === 0){
                 this.props.unfollow(userId);
             }
+            this.props.toggleFollowingInProgress(false, userId);
         })
     };
 
@@ -68,6 +72,7 @@ class UsersContainer extends React.Component {
                     onSetPage={this.onSetPage}
                     onFollow={this.onFollow}
                     onUnfollow={this.onUnfollow}
+                    followingInProgress={this.props.followingInProgress}
                 />
             </>
         )
@@ -80,12 +85,13 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsers: state.usersPage.totalUsers,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 };
 
 
 export default connect(mapStateToProps,
-    {follow, setCurrentPage, setFetching, setTotalUsers, setUsers, unfollow})
+    {follow, setCurrentPage, setFetching, setTotalUsers, setUsers, unfollow, toggleFollowingInProgress})
 (UsersContainer);
 

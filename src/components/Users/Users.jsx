@@ -21,6 +21,7 @@ let Users = (props) => {
             followed={user.followed}
             onFollow={props.onFollow}
             onUnfollow={props.onUnfollow}
+            followingInProgress={props.followingInProgress}
         />);
 
         return (
