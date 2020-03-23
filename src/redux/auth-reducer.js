@@ -1,3 +1,6 @@
+import authApi from "../DAL/auth-api";
+import profileApi from "../DAL/profile-api";
+
 let SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 let SET_FETCHING = 'SET_FETCHING';
 let SET_AUTH_USER_PROFILE = 'SET_AUTH_USER_PROFILE';
@@ -40,7 +43,19 @@ export let setAuthUserProfile = (authProfile) => ({type: SET_AUTH_USER_PROFILE, 
 
 export const checkAuth = () => {
   return (dispatch) => {
-      
+      dispatch(setFetching(true));
+      authApi.checkAuth()
+          .then(data => {
+              if (data.resultCode === 0) {
+                  dispatch(setAuthUserData(data.data));
+                  let id = data.data.id;
+                  profileApi.getProfile(id)
+                      .then(profile => {
+                          dispatch(setAuthUserProfile(profile))
+                      });
+                  dispatch(setFetching(false));
+              }
+          });
   }
 };
 
