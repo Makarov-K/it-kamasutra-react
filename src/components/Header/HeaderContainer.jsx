@@ -14,12 +14,12 @@ class HeaderContainer extends React.Component {
             .then(data => {
                 if (data.resultCode === 0) {
                     this.props.setAuthUserData(data.data);
-                    this.props.setFetching(false);
                     let id = data.data.id;
                     profileApi.getProfile(id)
                         .then(profile => {
                             this.props.setAuthUserProfile(profile)
-                        })
+                        });
+                    this.props.setFetching(false);
                 }
             });
     }
