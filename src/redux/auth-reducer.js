@@ -38,4 +38,10 @@ export let setAuthUserData = (data) => ({type: SET_AUTH_USER_DATA, data});
 export let setFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 export let setAuthUserProfile = (authProfile) => ({type: SET_AUTH_USER_PROFILE, authProfile});
 
+export const checkAuth = () => {
+  return (dispatch) => {
+      
+  }
+};
+
 export default authReducer;

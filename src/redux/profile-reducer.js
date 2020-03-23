@@ -1,3 +1,5 @@
+import profileApi from "../DAL/profile-api";
+
 const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
 const SET_PROFILE = 'SET_PROFILE';
@@ -44,4 +46,14 @@ const profileReducer = (state = initialState, action) => {
 export let changeNewPostTextCreator = (text) => ({type: CHANGE_NEW_POST_TEXT, newPostText: text});
 export let addPostCreator = () => ({type: ADD_POST});
 export let setProfile = (profile) => ({type: SET_PROFILE, profile});
+
+export const getProfile = (userId) => {
+  return (dispatch) => {
+      profileApi.getProfile(userId)
+          .then(profile => {
+              dispatch(setProfile(profile));
+          })
+  }
+};
+
 export default profileReducer;
