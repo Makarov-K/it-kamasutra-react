@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {checkAuth, setAuthUserData, setAuthUserProfile, setFetching} from "../../redux/auth-reducer";
-import authApi from "../../DAL/auth-api";
-import profileApi from "../../DAL/profile-api";
+import {checkAuth} from "../../redux/auth-reducer";
+import {compose} from "redux";
 
 
 class HeaderContainer extends React.Component {
@@ -28,5 +27,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {checkAuth})
-(HeaderContainer);
+export default compose(
+    connect(mapStateToProps, {checkAuth})
+)(HeaderContainer);
+

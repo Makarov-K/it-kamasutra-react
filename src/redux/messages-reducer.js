@@ -36,6 +36,6 @@ const messagesReducer = (state = initialState, action) => {
     }
 };
 
-export let enterNewMessageCreator = (text) => ({type: enter_new_message, newMessageText: text});
-export let sendMessageCreator = () => ({type: send_message});
+export let enterNewMessage = (text) => ({type: enter_new_message, newMessageText: text});
+export let sendMessage = () => ({type: send_message});
 export default messagesReducer;

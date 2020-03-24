@@ -47,13 +47,11 @@ export let changeNewPostTextCreator = (text) => ({type: CHANGE_NEW_POST_TEXT, ne
 export let addPostCreator = () => ({type: ADD_POST});
 export let setProfile = (profile) => ({type: SET_PROFILE, profile});
 
-export const getProfile = (userId) => {
-  return (dispatch) => {
+export const getProfile = (userId) => (dispatch) => {
       profileApi.getProfile(userId)
           .then(profile => {
               dispatch(setProfile(profile));
           })
-  }
 };
 
 export default profileReducer;

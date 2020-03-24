@@ -9,15 +9,6 @@ const Messages = (props) => {
     let DialogList = props.dialogs.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
     let MessageList = props.messages.map(message => <Message message={message.message}/>);
 
-
-    let onSendMessage = () => {
-        props.sendNewMessage();
-    };
-
-    let onEnterNewMessage = (event) => {
-        props.changeNewMessageText(event.target.value);
-    };
-
     return (
         <div className={style.wrapper}>
             <div className={style.dialogs}>
@@ -30,8 +21,10 @@ const Messages = (props) => {
                 <div className={style.sendMessage}>
                 <textarea
                     value={props.newMessageText}
-                    onChange={onEnterNewMessage}/>
-                    <button onClick={onSendMessage}>Send message</button>
+                    onChange={(e) => {
+                        props.enterNewMessage(e.target.value)
+                    }}/>
+                    <button onClick={() => {props.sendMessage()}}>Send message</button>
                 </div>
             </div>
         </div>

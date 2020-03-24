@@ -2,19 +2,23 @@ import React from "react";
 import style from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
 import needJob from '../../../assets/img/Looking for a job.jpg';
+import defaultPhoto from '../../../assets/img/lent_54846_big_16.jpg';
 
 
 const ProfileInfo = (props) => {
-    if(!props.profile){
+    if (!props.profile) {
         return <Preloader/>
     }
 
     return (
         <div className={style.profile_info}>
-                <img className={style.wallpaper} src="https://img1.akspic.ru/image/104850-priroda-formirovanie-nacionalnyj_park-vodotok-dostoprimechatelnost-1920x1200.jpg"/>
+            <img className={style.wallpaper}
+                 src="https://img1.akspic.ru/image/104850-priroda-formirovanie-nacionalnyj_park-vodotok-dostoprimechatelnost-1920x1200.jpg"/>
             <div className={style.ava_description}>
                 <div className={style.ava}>
-                    <img src={props.profile.photos.large}/>
+                    <img src={props.profile.photos.large
+                        ? props.profile.photos.large
+                        : defaultPhoto}/>
                 </div>
                 <div className={style.description}>
                     <h3>{props.profile.fullName}</h3>
