@@ -24,9 +24,9 @@
     width: 100%;
     display: grid;
     grid-template-areas:
-    "fullName contacts"
-    "aboutMe ."
-    ". lookingForAJob";
+    "fullName aboutMe contacts"
+    "status . ."
+    ". . lookingForAJob";
 }
 
 .description h3{
@@ -46,6 +46,10 @@
 .contacts {
     grid-area: contacts;
     justify-self: end;
+}
+
+.profileStatus {
+    grid-area: status;
 }
 
 

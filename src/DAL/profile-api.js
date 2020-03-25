@@ -9,6 +9,14 @@ let profileApi = {
                     return response.data
                 })
         )
+    },
+    getProfileStatus(id) {
+        return (
+            baseAxios.get(`profile/status/${id}`)
+                .then(response => {
+                    return response.data
+                })
+        )
     }
 };
 

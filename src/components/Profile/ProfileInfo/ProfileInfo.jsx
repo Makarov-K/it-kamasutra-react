@@ -3,6 +3,7 @@ import style from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
 import needJob from '../../../assets/img/Looking for a job.jpg';
 import defaultPhoto from '../../../assets/img/lent_54846_big_16.jpg';
+import ProfileStatus from "./ProfileStatus";
 
 
 const ProfileInfo = (props) => {
@@ -23,6 +24,7 @@ const ProfileInfo = (props) => {
                 <div className={style.description}>
                     <h3>{props.profile.fullName}</h3>
                     <p>{props.profile.aboutMe}</p>
+                    <ProfileStatus className={style.profileStatus} profileStatus={props.profileStatus}/>
                     {props.profile.lookingForAJob && <img src={needJob}/>}
                     <div className={style.contacts}>
                         <h4>Me in Internet:</h4>
