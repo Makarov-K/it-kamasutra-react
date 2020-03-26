@@ -1,6 +1,6 @@
 .user {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 50fr;
     grid-template-areas:
     "ava info"
     "btn info";
