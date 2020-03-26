@@ -17,6 +17,14 @@ let profileApi = {
                     return response.data
                 })
         )
+    },
+    updateProfileStatus(newStatus) {
+        return(
+            baseAxios.put(`/profile/status`, {status: newStatus})
+                .then(response => {
+                    return response.data.resultCode
+                })
+        )
     }
 };
 

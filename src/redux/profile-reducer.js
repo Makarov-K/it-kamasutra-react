@@ -12,7 +12,7 @@ let initialState = {
     ],
     newPostText: '',
     profile: null,
-    profileStatus: null,
+    profileStatus: "",
     isLookingForAJob: null
 };
 
@@ -55,16 +55,24 @@ let setProfile = (profile) => ({type: SET_PROFILE, profile});
 let setProfileStatus = (profileStatus) => ({type: SET_PROFILE_STATUS, profileStatus});
 
 export const getProfile = (userId) => (dispatch) => {
-      profileApi.getProfile(userId)
-          .then(profile => {
-              dispatch(setProfile(profile));
-          })
+    profileApi.getProfile(userId)
+        .then(profile => {
+            dispatch(setProfile(profile));
+        })
 };
 export const getProfileStatus = (userId) => (dispatch) => {
-  profileApi.getProfileStatus(userId)
-      .then(profileStatus => {
-          dispatch(setProfileStatus(profileStatus));
-      })
+    profileApi.getProfileStatus(userId)
+        .then(profileStatus => {
+            dispatch(setProfileStatus(profileStatus));
+        })
+};
+export const updateProfileStatus = (newStatus) => (dispatch) => {
+    profileApi.updateProfileStatus(newStatus)
+        .then(resultCode => {
+            if(resultCode === 0){
+                dispatch(setProfileStatus(newStatus))
+            }
+        })
 };
 
 export default profileReducer;
