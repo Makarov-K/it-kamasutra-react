@@ -1,12 +1,11 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
-import {compose} from "redux";
 
 let LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder={"Login"} name={"login"} component={"input"}/>
+                <Field placeholder={"Login"} name={"email"} component={"input"}/>
             </div>
             <div>
                 <Field placeholder={"Password"} name={"password"} component={"input"}/>
@@ -22,6 +21,5 @@ let LoginForm = (props) => {
     )
 };
 
-export default compose(
-    reduxForm({form: "login"})
-)(LoginForm);
+LoginForm = reduxForm({form:'login'})(LoginForm);
+export default LoginForm;

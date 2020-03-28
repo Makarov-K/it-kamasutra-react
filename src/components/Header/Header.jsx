@@ -11,6 +11,7 @@ const Header = (props) => {
             {props.isFetching && <div className={style.loginBlock}><Preloader/></div>}
             {props.authProfile ?
                 <div className={style.loginBlock}>
+                    <button onClick={props.logout}>logout</button>
                     {props.login}
                     <img src={props.authProfile.photos.small ? props.authProfile.photos.small
                         : defaultPhoto}/>

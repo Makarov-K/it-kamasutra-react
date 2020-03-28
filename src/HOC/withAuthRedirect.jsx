@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
     }
 };
 

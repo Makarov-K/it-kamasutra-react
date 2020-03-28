@@ -11,7 +11,7 @@ let initialState = {
     email: null,
     isAuth: false,
     authProfile: null,
-    isFetching: null
+    isFetching: null,
 };
 
 let authReducer = (state = initialState, action) => {
@@ -41,11 +41,13 @@ export let setAuthUserData = (data) => ({type: SET_AUTH_USER_DATA, data});
 export let setFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 export let setAuthUserProfile = (authProfile) => ({type: SET_AUTH_USER_PROFILE, authProfile});
 
+
 export const checkAuth = () => {
   return (dispatch) => {
       dispatch(setFetching(true));
       authApi.checkAuth()
           .then(data => {
+              dispatch(setFetching(false));
               if (data.resultCode === 0) {
                   dispatch(setAuthUserData(data.data));
                   let id = data.data.id;
@@ -53,10 +55,29 @@ export const checkAuth = () => {
                       .then(profile => {
                           dispatch(setAuthUserProfile(profile))
                       });
-                  dispatch(setFetching(false));
               }
           });
   }
+};
+export const login = (loginData) => (dispatch) => {
+  return (
+      authApi.login(loginData)
+          .then(data =>{
+              if(data.resultCode === 0){
+
+              }
+          })
+  )
+};
+export const logout = () => (dispatch) => {
+  return (
+      authApi.logout()
+          .then(resultCode => {
+              if(resultCode === 0){
+
+              }
+          })
+  )
 };
 
 export default authReducer;

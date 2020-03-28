@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {checkAuth} from "../../redux/auth-reducer";
+import {checkAuth, logout} from "../../redux/auth-reducer";
 import {compose} from "redux";
 
 
@@ -28,6 +28,6 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-    connect(mapStateToProps, {checkAuth})
+    connect(mapStateToProps, {checkAuth, logout})
 )(HeaderContainer);
 

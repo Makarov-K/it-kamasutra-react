@@ -9,6 +9,22 @@ let authApi = {
                     return response.data
                 })
         )
+    },
+    login(loginData) {
+        return (
+            baseAxios.post('auth/login', {...loginData})
+                .then(response => {
+                    return response.data
+                })
+        )
+    },
+    logout() {
+        return (
+            baseAxios.post('auth/logout')
+                .then(response => {
+                    return response.data.resultCode
+                })
+        )
     }
 };
 
