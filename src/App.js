@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {Route} from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
-import MessagesContainer from "./components/Messages/MessagesContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -11,6 +10,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import Messages from "./components/Messages/Messages";
 
 
 const App = (props) => {
@@ -24,7 +24,7 @@ const App = (props) => {
                 <Route path='/profile/:userId?'
                        render={() => <ProfileContainer/>}/>
                 <Route path='/messages'
-                       render={() => <MessagesContainer/>}/>
+                       render={() => <Messages/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>

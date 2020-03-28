@@ -1,6 +1,5 @@
 import profileApi from "../DAL/profile-api";
 
-const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
 const SET_PROFILE = 'SET_PROFILE';
 const SET_PROFILE_STATUS = 'SET_PROFILE_STATUS';
@@ -10,7 +9,6 @@ let initialState = {
         {id: 1, message: 'Hi people!', likes: 23},
         {id: 2, message: 'It looks much easier on videos :(', likes: 14}
     ],
-    newPostText: '',
     profile: null,
     profileStatus: "",
     isLookingForAJob: null
@@ -18,21 +16,15 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case CHANGE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.newPostText
-            };
         case ADD_POST:
             let newPost = {
                 id: 3,
-                message: state.newPostText,
+                message: action.newPostText,
                 likes: 0
             };
             return {
                 ...state,
-                posts: [...state.posts, newPost],
-                newPostText: ''
+                posts: [...state.posts, newPost]
             };
         case SET_PROFILE:
             return {
@@ -49,8 +41,7 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-export let changeNewPostTextCreator = (text) => ({type: CHANGE_NEW_POST_TEXT, newPostText: text});
-export let addPostCreator = () => ({type: ADD_POST});
+export let addPost = (newPostText) => ({type: ADD_POST, newPostText});
 let setProfile = (profile) => ({type: SET_PROFILE, profile});
 let setProfileStatus = (profileStatus) => ({type: SET_PROFILE_STATUS, profileStatus});
 

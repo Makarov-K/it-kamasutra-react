@@ -1,4 +1,3 @@
-const enter_new_message = 'ENTER-NEW-MESSAGE';
 const send_message = 'SEND-MESSAGE';
 
 let initialState = {
@@ -10,32 +9,25 @@ let initialState = {
         {id: 1, message: 'Ebobaniy Obama'},
         {id: 2, message: 'Byl bi ty chelovekom'},
         {id: 3, message: 'Tvoyu doch\' eboot'}
-    ],
-    newMessageText: ''
+    ]
 };
 
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case enter_new_message:
-            return {
-                ...state,
-                newMessageText: action.newMessageText
-            };
         case send_message:
             let newMessage = {
                 id: 4,
-                message: state.newMessageText
+                message: action.newMessageText
             };
             return {
                 ...state,
                 messages: [...state.messages, newMessage],
-                newMessageText: ''
             };
         default:
             return state;
     }
 };
 
-export let enterNewMessage = (text) => ({type: enter_new_message, newMessageText: text});
-export let sendMessage = () => ({type: send_message});
+export let sendMessage = (newMessageText) => ({type: send_message, newMessageText});
+
 export default messagesReducer;
