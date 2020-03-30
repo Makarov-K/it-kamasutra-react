@@ -26,13 +26,8 @@ let Users = (props) => {
         <div className={style.users}>
             <div>
                 {pages.map(pageNumber => {
-                    return <span
-                        className={props.currentPage === pageNumber && style.selectedPage}
-                        onClick={() => {
-                            props.onSetPage(pageNumber)
-                        }}>
-                            {pageNumber}</span>
-                })}
+                    return <span className={props.currentPage === pageNumber && style.selectedPage}
+                        onClick={() => {props.onSetPage(pageNumber)}}>{pageNumber}</span>})}
             </div>
             {UsersList}
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm"
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
+import {Redirect} from "react-router-dom";
 
 let Login = (props) => {
 
@@ -9,6 +10,7 @@ let Login = (props) => {
       props.login(formData);
     };
 
+    if(props.isAuth) return <Redirect to={`/profile/${props.authId}`}/>;
     return (
         <div>
             <h1>Login</h1>
@@ -18,6 +20,7 @@ let Login = (props) => {
 };
 
 let mapStateToProps = (state) => ({
-
+    isAuth: state.auth.isAuth,
+    authId: state.auth.id
 });
 export default connect(mapStateToProps,{login})(Login);
