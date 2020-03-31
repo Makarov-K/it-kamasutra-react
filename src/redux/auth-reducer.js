@@ -1,5 +1,6 @@
 import authApi from "../DAL/auth-api";
 import profileApi from "../DAL/profile-api";
+import {stopSubmit} from "redux-form";
 
 let SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 let SET_FETCHING = 'SET_FETCHING';
@@ -68,6 +69,9 @@ export const login = (loginData) => (dispatch) => {
           .then(data =>{
               if(data.resultCode === 0){
                   dispatch(checkAuth())
+              } else if(data.resultCode === 1){
+                  let errorMessage = data.messages.length > 0 ? data.messages[0] : "";
+                  dispatch(stopSubmit("login", {_error: errorMessage}))
               }
           })
   )
