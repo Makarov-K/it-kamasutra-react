@@ -29,8 +29,8 @@ let authReducer = (state = initialState, action) => {
             };
         case SET_AUTH_USER_PROFILE:
             return {
-              ...state,
-              authProfile: action.authProfile
+                ...state,
+                authProfile: action.authProfile
             };
         default:
             return state;
@@ -43,48 +43,42 @@ export let setFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 export let setAuthUserProfile = (authProfile) => ({type: SET_AUTH_USER_PROFILE, authProfile});
 
 
-export const checkAuth = () => {
-  return (dispatch) => {
-      dispatch(setFetching(true));
-      authApi.checkAuth()
-          .then(data => {
-              dispatch(setFetching(false));
-              if (data.resultCode === 0) {
-                  dispatch(setAuthUserData(data.data, true));
-                  let id = data.data.id;
-                  profileApi.getProfile(id)
-                      .then(profile => {
-                          dispatch(setAuthUserProfile(profile))
-                      });
-              } else if(data.resultCode === 1) {
-                  dispatch(setAuthUserData({id: null, email: null, login: null}, false));
-                  dispatch(setAuthUserProfile(null))
-              }
-          });
-  }
+export const checkAuth = () => (dispatch) => {
+    dispatch(setFetching(true));
+    return authApi.checkAuth()
+        .then(data => {
+            dispatch(setFetching(false));
+            if (data.resultCode === 0) {
+                dispatch(setAuthUserData(data.data, true));
+                let id = data.data.id;
+                profileApi.getProfile(id)
+                    .then(profile => {
+                        dispatch(setAuthUserProfile(profile))
+                    });
+            } else if (data.resultCode === 1) {
+                dispatch(setAuthUserData({id: null, email: null, login: null}, false));
+                dispatch(setAuthUserProfile(null))
+            }
+        });
 };
 export const login = (loginData) => (dispatch) => {
-  return (
-      authApi.login(loginData)
-          .then(data =>{
-              if(data.resultCode === 0){
-                  dispatch(checkAuth())
-              } else if(data.resultCode === 1){
-                  let errorMessage = data.messages.length > 0 ? data.messages[0] : "";
-                  dispatch(stopSubmit("login", {_error: errorMessage}))
-              }
-          })
-  )
+    authApi.login(loginData)
+        .then(data => {
+            if (data.resultCode === 0) {
+                dispatch(checkAuth())
+            } else if (data.resultCode === 1) {
+                let errorMessage = data.messages.length > 0 ? data.messages[0] : "";
+                dispatch(stopSubmit("login", {_error: errorMessage}))
+            }
+        })
 };
 export const logout = () => (dispatch) => {
-  return (
-      authApi.logout()
-          .then(resultCode => {
-              if(resultCode === 0){
-                  dispatch(checkAuth())
-              }
-          })
-  )
+    authApi.logout()
+        .then(resultCode => {
+            if (resultCode === 0) {
+                dispatch(checkAuth())
+            }
+        })
 };
 
 export default authReducer;
