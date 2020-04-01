@@ -1,4 +1,4 @@
-import {checkAuth} from "./auth-reducer";
+import {getAuthUserData} from "./auth-reducer";
 
 const INITIALIZE = 'INITIALIZE';
 
@@ -21,7 +21,7 @@ let appReducer = (state = initialState, action) => {
 let Initialize = () => ({type: INITIALIZE});
 
 export const initializeApp = () => (dispatch) => {
-    let promise = dispatch(checkAuth());
+    let promise = dispatch(getAuthUserData());
     Promise.all([promise])
         .then(() => {
             dispatch(Initialize());
