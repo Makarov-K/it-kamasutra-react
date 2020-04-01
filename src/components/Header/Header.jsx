@@ -9,12 +9,12 @@ const Header = (props) => {
         <header className={style.header}>
             <img src="https://doit.ua/files/images/portfolio/1/1501v73135841.jpg"/>
             {props.isFetching && <div className={style.loginBlock}><Preloader/></div>}
-            {props.authProfile ?
-                <div className={style.loginBlock}>
+            {props.login
+                ? <div className={style.loginBlock}>
+                    <div>{props.login}</div>
                     <button onClick={props.logout}>logout</button>
-                    {props.login}
-                    <img src={props.authProfile.photos.small ? props.authProfile.photos.small
-                        : defaultPhoto}/>
+                    {/*  <img src={props.authProfile.photos.small ? props.authProfile.photos.small
+                        : defaultPhoto}/>*/}
                 </div>
                 : <div className={style.loginBlock}><NavLink to='/login'>Login</NavLink></div>}
         </header>

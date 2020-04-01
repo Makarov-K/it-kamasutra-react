@@ -18,13 +18,13 @@ let appReducer = (state = initialState, action) => {
     }
 };
 
-let setInitialize = () => ({type: INITIALIZE});
+let Initialize = () => ({type: INITIALIZE});
 
 export const initializeApp = () => (dispatch) => {
     let promise = dispatch(checkAuth());
     Promise.all([promise])
         .then(() => {
-            dispatch(setInitialize());
+            dispatch(Initialize());
         })
 };
 

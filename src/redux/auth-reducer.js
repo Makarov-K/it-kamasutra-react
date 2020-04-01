@@ -50,11 +50,11 @@ export const checkAuth = () => (dispatch) => {
             dispatch(setFetching(false));
             if (data.resultCode === 0) {
                 dispatch(setAuthUserData(data.data, true));
-                let id = data.data.id;
+                /*let id = data.data.id;
                 profileApi.getProfile(id)
                     .then(profile => {
                         dispatch(setAuthUserProfile(profile))
-                    });
+                    });*/
             } else if (data.resultCode === 1) {
                 dispatch(setAuthUserData({id: null, email: null, login: null}, false));
                 dispatch(setAuthUserProfile(null))
