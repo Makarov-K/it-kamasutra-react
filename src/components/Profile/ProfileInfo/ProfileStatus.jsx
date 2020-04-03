@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const ProfileStatus = (props) => {
 
@@ -15,6 +15,10 @@ const ProfileStatus = (props) => {
     const onStatusChange = (e) => {
         setProfileStatus(e.target.value)
     };
+
+    useEffect(() => {
+       setProfileStatus(props.profileStatus)
+    }, [props.profileStatus]);
 
     return (
         <div>
