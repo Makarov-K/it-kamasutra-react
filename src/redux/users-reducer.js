@@ -65,7 +65,7 @@ let usersReducer = (state = initialState, action) => {
                 ...state,
                 followingInProgress: action.status
                     ? [...state.followingInProgress, action.userId]
-                    : state.followingInProgress.filter(userId => userId != action.userId)
+                    : state.followingInProgress.filter(userId => userId !== action.userId)
             };
         default:
             return state;
@@ -80,10 +80,10 @@ export let setTotalUsers = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers})
 export let setFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 export let toggleFollowingInProgress = (status, userId) => ({type: TOGGLE_FOLLOWING_IN_PROGRESS, status, userId});
 
-export const getUsers = () => {
+export const requestUsers = () => {
     return (dispatch) => {
         dispatch(setFetching(true));
-        usersApi.getUsers()
+        usersApi.requestUsers()
             .then(data => {
                 dispatch(setFetching(false));
                 dispatch(setUsers(data.items));
@@ -91,12 +91,12 @@ export const getUsers = () => {
             })
     }
 };
-export const getSpecificUsersPage = (pageNumber) => {
+export const requestSpecificUsersPage = (pageNumber) => {
   return (dispatch) => {
       dispatch(setUsers([]));
       dispatch(setFetching(true));
       dispatch(setCurrentPage(pageNumber));
-      usersApi.getUsers(pageNumber)
+      usersApi.requestUsers(pageNumber)
           .then(data => {
               dispatch(setFetching(false));
               dispatch(setUsers(data.items));
