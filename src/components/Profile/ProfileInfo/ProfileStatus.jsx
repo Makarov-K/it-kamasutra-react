@@ -1,48 +1,61 @@
-import React from "react";
+import React, {useState} from "react";
 
-class ProfileStatus extends React.Component {
+const ProfileStatus = (props) => {
 
-    state = {
-        editMode: false,
-        profileStatus: this.props.profileStatus
+    const [editMode, setEditMode] = useState(false);
+    const onSetEditMode = () => {
+        setEditMode(true)
     };
-    activateEditMode = () => {
-        this.setState({
-            editMode: true
-        })
+    const onDeactivateEditMode = () => {
+        setEditMode(false);
+        props.updateProfileStatus(profileStatus)
     };
-    deactivateEditMode = () => {
-        this.setState({
-            editMode: false
-        });
-        this.props.updateProfileStatus(this.state.profileStatus)
-    };
-    onStatusChange = (e) => {
-       this.setState({
-            profileStatus: e.currentTarget.value
-        })
-    };
-    componentDidUpdate(prevProps, prevState) {
-        if(prevProps.profileStatus !== this.props.profileStatus){
-            this.setState({
-                profileStatus: this.props.profileStatus
-            })
-        }
-    }
 
-    render() {
-        return (
-            <div>
-                {this.state.editMode
-                    ? <div>
-                        <input onBlur={this.deactivateEditMode} value={this.state.profileStatus}
-                               autoFocus={true} onChange={this.onStatusChange}/>
-                    </div>
-                    : <span onDoubleClick={this.activateEditMode}>
-                        {this.props.profileStatus || "What's new?"}</span>}
-            </div>
-        )
-    }
-}
+    const [profileStatus, setProfileStatus] = useState(props.profileStatus);
+    const onStatusChange = (e) => {
+        setProfileStatus(e.target.value)
+    };
+
+    return (
+        <div>
+            {editMode
+                ? <div>
+                    <input onBlur={onDeactivateEditMode} value={profileStatus}
+                           autoFocus={true} onChange={onStatusChange}/>
+                </div>
+                : <span onDoubleClick={onSetEditMode}>
+                        {props.profileStatus || "What's new?"}</span>}
+        </div>
+    )
+};
 
 export default ProfileStatus;
+
+/*
+state = {
+    editMode: false,
+    profileStatus: this.props.profileStatus
+};
+activateEditMode = () => {
+    this.setState({
+        editMode: true
+    })
+};
+deactivateEditMode = () => {
+    this.setState({
+        editMode: false
+    });
+    this.props.updateProfileStatus(this.state.profileStatus)
+};
+onStatusChange = (e) => {
+    this.setState({
+        profileStatus: e.currentTarget.value
+    })
+};
+componentDidUpdate(prevProps, prevState) {
+    if(prevProps.profileStatus !== this.props.profileStatus){
+        this.setState({
+            profileStatus: this.props.profileStatus
+        })
+    }
+}*/
