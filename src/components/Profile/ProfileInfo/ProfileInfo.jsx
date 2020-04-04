@@ -7,6 +7,7 @@ import ProfileStatus from "./ProfileStatus";
 
 
 const ProfileInfo = (props) => {
+    console.log('profileInfo render')
     if (!props.profile) {
         return <Preloader/>
     }

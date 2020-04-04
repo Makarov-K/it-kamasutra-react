@@ -6,8 +6,12 @@ import MyPosts from "./My_posts/MyPosts";
 const Profile = (props) => {
     return (
         <div className={style.profile}>
-            <ProfileInfo {...props}/>
-            <MyPosts {...props}/>
+            <ProfileInfo
+                profile={props.profile}
+                profileStatus={props.profileStatus}
+                updateProfileStatus={props.updateProfileStatus}
+            />
+            <MyPosts posts={props.posts} addPost={props.addPost}/>
         </div>
     );
 };
