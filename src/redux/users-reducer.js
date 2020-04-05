@@ -1,7 +1,7 @@
 import usersApi from "../DAL/users-api";
 
-let FOLLOW = 'FOLLOW';
-let UNFOLLOW = 'UNFOLLOW';
+let FOLLOWSUCCESS = 'FOLLOWSUCCESS';
+let UNFOLLOWSUCCESS = 'UNFOLLOWSUCCESS';
 let SET_USERS = 'SET_USERS';
 let SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 let SET_TOTAL_USERS = 'SET_TOTAL_USERS';
@@ -20,24 +20,24 @@ let initialState = {
 
 let usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FOLLOW:
+        case FOLLOWSUCCESS:
             return {
                 ...state,
                 users: state.users.map(user => {
-                    if (action.id === user.id) {
-                        user.followed = true;
+                    if(user.id === action.id) {
+                        user.followed = true
                     }
-                    return user;
+                    return user
                 })
             };
-        case UNFOLLOW:
+        case UNFOLLOWSUCCESS:
             return {
                 ...state,
                 users: state.users.map(user => {
-                    if (action.id === user.id) {
-                        user.followed = false;
+                    if(user.id === action.id) {
+                        user.followed = false
                     }
-                    return user;
+                    return user
                 })
             };
         case SET_USERS:
@@ -72,60 +72,44 @@ let usersReducer = (state = initialState, action) => {
     }
 };
 
-export let followSuccess = (id) => ({type: FOLLOW, id: id});
-export let unfollowSuccess = (id) => ({type: UNFOLLOW, id: id});
-export let setUsers = (users) => ({type: SET_USERS, users});
-export let setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, currentPage: pageNumber});
-export let setTotalUsers = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers});
+let followSuccess = (id) => ({type: FOLLOWSUCCESS, id: id});
+let unfollowSuccess = (id) => ({type: UNFOLLOWSUCCESS, id: id});
+let setUsers = (users) => ({type: SET_USERS, users});
+let setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, currentPage: pageNumber});
+let setTotalUsers = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers});
 export let setFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
-export let toggleFollowingInProgress = (status, userId) => ({type: TOGGLE_FOLLOWING_IN_PROGRESS, status, userId});
+let toggleFollowingInProgress = (status, userId) => ({type: TOGGLE_FOLLOWING_IN_PROGRESS, status, userId});
 
-export const requestUsers = () => {
-    return (dispatch) => {
-        dispatch(setFetching(true));
-        usersApi.requestUsers()
-            .then(data => {
-                dispatch(setFetching(false));
-                dispatch(setUsers(data.items));
-                dispatch(setTotalUsers(data.totalCount));
-            })
-    }
+export const requestUsers = () => async (dispatch) => {
+    dispatch(setFetching(true));
+    const data = await usersApi.requestUsers();
+    dispatch(setFetching(false));
+    dispatch(setUsers(data.items));
+    dispatch(setTotalUsers(data.totalCount));
 };
-export const requestSpecificUsersPage = (pageNumber) => {
-  return (dispatch) => {
-      dispatch(setUsers([]));
-      dispatch(setFetching(true));
-      dispatch(setCurrentPage(pageNumber));
-      usersApi.requestUsers(pageNumber)
-          .then(data => {
-              dispatch(setFetching(false));
-              dispatch(setUsers(data.items));
-          })
-  }
+export const requestSpecificUsersPage = (pageNumber) => async (dispatch) => {
+    dispatch(setUsers([]));
+    dispatch(setFetching(true));
+    dispatch(setCurrentPage(pageNumber));
+    const data = await usersApi.requestUsers(pageNumber);
+    dispatch(setFetching(false));
+    dispatch(setUsers(data.items));
 };
-export const follow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleFollowingInProgress(true, userId));
-        usersApi.followChosenUser(userId)
-            .then(resultCode => {
-                if (resultCode === 0) {
-                    dispatch(followSuccess(userId));
-                }
-                dispatch(toggleFollowingInProgress(false, userId));
-            });
+export const follow = (userId) => async (dispatch) => {
+    dispatch(toggleFollowingInProgress(true, userId));
+    const resultCode = await usersApi.followChosenUser(userId);
+    if (resultCode === 0) {
+        dispatch(followSuccess(userId));
     }
+    dispatch(toggleFollowingInProgress(false, userId));
 };
-export const unfollow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleFollowingInProgress(true, userId));
-        usersApi.unFollowChosenUser(userId)
-            .then(resultCode => {
-                if(resultCode === 0){
-                    dispatch(unfollowSuccess(userId));
-                }
-                dispatch(toggleFollowingInProgress(false, userId));
-            })
+export const unfollow = (userId) => async (dispatch) => {
+    dispatch(toggleFollowingInProgress(true, userId));
+    const resultCode = await usersApi.unFollowChosenUser(userId);
+    if (resultCode === 0) {
+        dispatch(unfollowSuccess(userId));
     }
+    dispatch(toggleFollowingInProgress(false, userId));
 };
 
 export default usersReducer;

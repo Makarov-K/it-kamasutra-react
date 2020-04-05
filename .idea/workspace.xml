@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/My_posts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My_posts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/users-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/users-api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/users-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/users-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +174,9 @@
       <workItem from="1585766637261" duration="652000" />
       <workItem from="1585903716287" duration="5248000" />
       <workItem from="1585938464207" duration="3294000" />
-      <workItem from="1585998902816" duration="5427000" />
+      <workItem from="1585998902816" duration="5893000" />
+      <workItem from="1586026420610" duration="609000" />
+      <workItem from="1586084610339" duration="4670000" />
     </task>
     <servers />
   </component>
@@ -208,17 +209,17 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1585645909051" />
-    <state x="414" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585560006799">
+    <state x="414" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586097645106">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="414" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1585560006799" />
+    <state x="414" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1586097645106" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1585394261126">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1585394261126" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585938484581">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1586106708437">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1585938484581" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1586106708437" />
   </component>
 </project>
