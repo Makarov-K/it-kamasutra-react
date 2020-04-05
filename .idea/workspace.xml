@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOC/withAuthRedirect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOC/withAuthRedirect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/app-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/app-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +176,7 @@
       <workItem from="1585938464207" duration="3294000" />
       <workItem from="1585998902816" duration="5893000" />
       <workItem from="1586026420610" duration="609000" />
-      <workItem from="1586084610339" duration="7151000" />
+      <workItem from="1586084610339" duration="10831000" />
     </task>
     <servers />
   </component>
@@ -216,9 +217,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1585394261126" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1586108537516">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1586121836511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1586108537516" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1586121836511" />
   </component>
 </project>
