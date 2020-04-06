@@ -10,6 +10,7 @@ const Profile = (props) => {
                 profile={props.profile}
                 profileStatus={props.profileStatus}
                 updateProfileStatus={props.updateProfileStatus}
+                authId={props.authId}
             />
             <MyPosts posts={props.posts} addPost={props.addPost}/>
         </div>

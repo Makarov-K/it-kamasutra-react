@@ -11,7 +11,7 @@ import {
     getPageSize,
     getTotalUsers,
     getUsers
-} from "../../selectors/selectors";
+} from "../../selectors/usersSelectors";
 
 
 class UsersContainer extends React.Component {

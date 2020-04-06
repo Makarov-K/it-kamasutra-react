@@ -15,6 +15,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import Preloader from "./components/Common/Preloader/Preloader";
 import {initializeApp} from "./redux/app-reducer";
+import {getInitialized} from "./selectors/appSelectors";
 
 
 class App extends React.Component {
@@ -51,7 +52,7 @@ class App extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-    initialized: state.app.initialized
+    initialized: getInitialized(state)
 });
 
 export default compose(

@@ -10,12 +10,18 @@ const Header = (props) => {
             {props.authProfile
                 ? <div className={style.loginBlock}>
                     <button onClick={props.logout}>logout</button>
-                    {props.login}
+                    <span>
+                        <NavLink to={{pathname: `/profile/${props.authProfile.userId}`}}>
+                            {props.login}
+                        </NavLink>
+                    </span>
                     <img src={props.authProfile.photos.small
                         ? props.authProfile.photos.small
                         : defaultPhoto}/>
                 </div>
-                : <div className={style.loginBlock}><NavLink to='/login'>Login</NavLink></div>}
+                : <div className={style.loginBlock}>
+                    <NavLink to='/login'>Login</NavLink>
+                </div>}
         </header>
     )
 };
