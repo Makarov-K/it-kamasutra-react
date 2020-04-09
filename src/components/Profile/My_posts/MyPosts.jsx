@@ -4,7 +4,6 @@ import Post from "./Post/Post";
 import AddPostForm from "./AddPostForm";
 
 let MyPosts = React.memo((props) => {
-    console.log('myPosts render');
     let PostList = props.posts.map(post => <Post message={post.message} likes={post.likes}/>);
 
     let onSubmit = (formData) => {

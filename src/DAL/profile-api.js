@@ -2,7 +2,7 @@ import baseAxios from "./base-axios";
 
 
 let profileApi = {
-    getProfile(id) {
+    requestProfile(id) {
         return (
             baseAxios.get(`profile/${id}`)
                 .then(response => {
@@ -10,7 +10,7 @@ let profileApi = {
                 })
         )
     },
-    getProfileStatus(id) {
+    requestProfileStatus(id) {
         return (
             baseAxios.get(`profile/status/${id}`)
                 .then(response => {

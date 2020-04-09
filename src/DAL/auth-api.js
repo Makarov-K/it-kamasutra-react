@@ -1,6 +1,5 @@
 import baseAxios from "./base-axios";
 
-
 let authApi = {
     checkAuth() {
         return (

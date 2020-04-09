@@ -33,9 +33,9 @@ class UsersContainer extends React.Component {
 
     render() {
         return (
-            <>
-                {this.props.isFetching ? <Preloader/> : null}
+            <div>
                 <Users
+                    isFetching={this.props.isFetching}
                     totalUsers={this.props.totalUsers}
                     pageSize={this.props.pageSize}
                     users={this.props.users}
@@ -44,8 +44,9 @@ class UsersContainer extends React.Component {
                     onFollow={this.onFollow}
                     onUnfollow={this.onUnfollow}
                     followingInProgress={this.props.followingInProgress}
+                    paginatorPortionSize={this.props.paginatorPortionSize}
                 />
-            </>
+            </div>
         )
     }
 }
@@ -57,7 +58,8 @@ let mapStateToProps = (state) => {
         totalUsers: getTotalUsers(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
-        followingInProgress: getFollowingInProgress(state)
+        followingInProgress: getFollowingInProgress(state),
+        paginatorPortionSize: state.usersPage.paginatorPortionSize
     }
 };
 

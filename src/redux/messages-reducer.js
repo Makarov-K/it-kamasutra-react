@@ -9,7 +9,8 @@ let initialState = {
         {id: 1, message: 'Ebobaniy Obama'},
         {id: 2, message: 'Byl bi ty chelovekom'},
         {id: 3, message: 'Tvoyu doch\' eboot'}
-    ]
+    ],
+    messageText: 'hi'
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -22,6 +23,7 @@ const messagesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 messages: [...state.messages, newMessage],
+                messageText: ''
             };
         default:
             return state;

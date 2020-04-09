@@ -1,15 +1,11 @@
 import React from "react";
 import style from './Users.module.css';
 import User from "./User/User";
+import Paginator from "../Common/Paginator/Paginator";
+import Preloader from "../Common/Preloader/Preloader";
 
 
 let Users = (props) => {
-
-    let pagesQuantity = Math.ceil(props.totalUsers / props.pageSize);
-    let pages = [];
-    for (let i = 1; i <= pagesQuantity; i++) {
-        pages.push(i);
-    }
 
     let UsersList = props.users.map(user => <User
         id={user.id}
@@ -25,11 +21,18 @@ let Users = (props) => {
     return (
         <div className={style.users}>
             <div>
-                {pages.map(pageNumber => {
-                    return <span className={props.currentPage === pageNumber && style.selectedPage}
-                        onClick={() => {props.onSetPage(pageNumber)}}>{pageNumber}</span>})}
+                <Paginator
+                    totalItems={props.totalUsers}
+                    pageSize={props.pageSize}
+                    currentPage={props.currentPage}
+                    onSetPage={props.onSetPage}
+                    paginatorPortionSize={props.paginatorPortionSize}
+                />
             </div>
-            {UsersList}
+            {props.isFetching ? <Preloader/> : null}
+            <div>
+                {UsersList}
+            </div>
         </div>
     );
 };

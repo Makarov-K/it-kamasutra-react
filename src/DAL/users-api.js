@@ -1,7 +1,7 @@
 import baseAxios from "./base-axios";
 
 let usersApi = {
-    requestUsers(currentPage = 1, pageSize = 5) {
+    requestUsers(currentPage = 1, pageSize = 10) {
         return (baseAxios.get(`users?count=${pageSize}&page=${currentPage}`)
                 .then(response => {
                 return response.data

@@ -3,11 +3,11 @@ import Friends from "./Friends";
 import {connect} from "react-redux";
 
 
-/*const FriendsContainer = (props) => {
+let FriendsContainer = (props) => {
     return (
-      <Friends/>
+      <Friends friends={props.friends}/>
     );
-};*/
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -15,12 +15,6 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-
-    }
-};
-
-const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
+FriendsContainer = connect(mapStateToProps, {})(FriendsContainer);
 
 export default FriendsContainer;

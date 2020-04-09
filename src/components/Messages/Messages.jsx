@@ -9,11 +9,11 @@ import SendMessageForm from "./SendMessageForm";
 import {sendMessage} from "../../redux/messages-reducer";
 
 let Messages = (props) => {
-    let DialogList = props.dialogs.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
-    let MessageList = props.messages.map(message => <Message message={message.message}/>);
+    let DialogList = props.dialogs.map(dialog => <Dialog key={dialog.id} name={dialog.name} id={dialog.id}/>);
+    let MessageList = props.messages.map(message => <Message key={message.id} message={message.message}/>);
 
     let onSubmit = (formData) => {
-      props.sendMessage(formData.newMessageText);
+        props.sendMessage(formData.newMessageText);
     };
 
     return (
@@ -25,18 +25,21 @@ let Messages = (props) => {
                 <div>
                     {MessageList}
                 </div>
-                <SendMessageForm onSubmit={onSubmit}/>
+                <SendMessageForm
+                    onSubmit={onSubmit}
+                    messageText={props.messageText}
+                />
             </div>
         </div>
     );
 };
-const mapStateToProps = (state) => {
-    return {
-        dialogs: state.messagesPage.dialogs,
-        messages: state.messagesPage.messages,
-        newMessageText: state.messagesPage.newMessageText,
-    }
-};
+
+const mapStateToProps = (state) => ({
+    dialogs: state.messagesPage.dialogs,
+    messages: state.messagesPage.messages,
+    messageText: state.messagesPage.messageText
+});
+
 Messages = compose(
     connect(mapStateToProps, {sendMessage}),
     withAuthRedirect

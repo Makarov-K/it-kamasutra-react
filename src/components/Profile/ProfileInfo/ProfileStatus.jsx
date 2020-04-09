@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 
 const ProfileStatus = (props) => {
-
     const [editMode, setEditMode] = useState(false);
     const onSetEditMode = () => {
         setEditMode(true)

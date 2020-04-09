@@ -9,7 +9,9 @@ let SendMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component={Textarea} name={'newMessageText'} validate={[maxLength10]}/>
+                <Field component={Textarea} name={'newMessageText'}
+                       validate={[maxLength10]}
+                />
             </div>
             <div>
                 <button>send message</button>

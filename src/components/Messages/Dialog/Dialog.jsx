@@ -9,7 +9,7 @@ const Dialog = (props) => {
           <NavLink to={`/messages/${props.id}`}>{props.name}</NavLink>
       </div>
     );
-}
+};
 
 export default Dialog;
 

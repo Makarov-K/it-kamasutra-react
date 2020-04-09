@@ -50,7 +50,7 @@ export const getAuthUserData = () => async (dispatch) => {
     if (data.resultCode === 0) {
         dispatch(setAuthUserData(data.data, true));
         let id = data.data.id;
-        let profile = await profileApi.getProfile(id);
+        let profile = await profileApi.requestProfile(id);
         dispatch(setAuthUserProfile(profile));
     } else if (data.resultCode === 1) {
         dispatch(setAuthUserData({id: null, email: null, login: null}, false));
