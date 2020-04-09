@@ -18,20 +18,24 @@ let Users = (props) => {
         followingInProgress={props.followingInProgress}
     />);
 
+    const paginator = <Paginator
+        totalItems={props.totalUsers}
+        pageSize={props.pageSize}
+        currentPage={props.currentPage}
+        onSetPage={props.onSetPage}
+        paginatorPortionSize={props.paginatorPortionSize}
+    />;
+
     return (
         <div className={style.users}>
             <div>
-                <Paginator
-                    totalItems={props.totalUsers}
-                    pageSize={props.pageSize}
-                    currentPage={props.currentPage}
-                    onSetPage={props.onSetPage}
-                    paginatorPortionSize={props.paginatorPortionSize}
-                />
+                {props.isFetching ? <Preloader/> : null}
             </div>
-            {props.isFetching ? <Preloader/> : null}
             <div>
                 {UsersList}
+            </div>
+            <div>
+                {paginator}
             </div>
         </div>
     );

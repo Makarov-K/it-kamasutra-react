@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/auth-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/auth-api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/profile-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/profile-api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/users-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/users-api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/Friend/Friend.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Friends/Friends.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/Friends.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Friends/FriendsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/FriendsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/Dialog/Dialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Dialog/Dialog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/Message/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Message/Message.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/SendMessageForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/SendMessageForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Music/Music.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Music/Music.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/News/News.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/News/News.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/My_posts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My_posts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Settings/Settings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings/Settings.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/messages-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/messages-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profile-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/sidebar-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/sidebar-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/users-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/users-reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +205,7 @@
       <workItem from="1586253972511" duration="5212000" />
       <workItem from="1586296515033" duration="1063000" />
       <workItem from="1586340503635" duration="601000" />
-      <workItem from="1586428877294" duration="3858000" />
+      <workItem from="1586428877294" duration="5667000" />
     </task>
     <servers />
   </component>

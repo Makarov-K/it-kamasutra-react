@@ -1,5 +1,6 @@
 .selectedPage {
     font-weight: bold;
+    border: black solid 1px;
 }
 
 .page {
@@ -8,5 +9,9 @@
 
 .paginator {
     padding: 10px;
+}
+
+.paginator button {
+    margin: 5px;
 }
 

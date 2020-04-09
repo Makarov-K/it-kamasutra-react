@@ -28,12 +28,18 @@ let Paginator = (props) => {
     return (
         <div className={style.paginator}>
             {portionQuantity > 1 && currentPortion > 1
-                ? <button onClick={() => setCurrentPortion(currentPortion - 1)}>prev</button>
+                ? <span>
+                    <button onClick={() => setCurrentPortion(1)}>to start</button>
+                    <button onClick={() => setCurrentPortion(currentPortion - 1)}>prev</button>
+                </span>
                 : null
             }
             {pagesList}
             {portionQuantity > 1 && currentPortion < portionQuantity
-                ? <button onClick={() => setCurrentPortion(currentPortion + 1)}>next</button>
+                ? <span>
+                    <button onClick={() => setCurrentPortion(currentPortion + 1)}>next</button>
+                    <button onClick={() => setCurrentPortion(portionQuantity)}>end</button>
+                </span>
                 : null
             }
         </div>
