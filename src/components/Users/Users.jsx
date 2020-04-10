@@ -8,6 +8,7 @@ import Preloader from "../Common/Preloader/Preloader";
 let Users = (props) => {
 
     let UsersList = props.users.map(user => <User
+        key={user.id}
         id={user.id}
         name={user.name}
         photo={user.photos.small}
@@ -23,7 +24,7 @@ let Users = (props) => {
         pageSize={props.pageSize}
         currentPage={props.currentPage}
         onSetPage={props.onSetPage}
-        paginatorPortionSize={props.paginatorPortionSize}
+        portionSize={props.paginatorPortionSize}
     />;
 
     return (

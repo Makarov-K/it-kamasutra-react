@@ -1,21 +1,21 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import './App.css';
-import {Route, withRouter} from "react-router-dom";
+import {Route, Switch, withRouter} from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import FriendsContainer from "./components/Friends/FriendsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Login from "./components/Login/Login";
-import Messages from "./components/Messages/Messages";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import Preloader from "./components/Common/Preloader/Preloader";
 import {initializeApp} from "./redux/app-reducer";
 import {getInitialized} from "./selectors/appSelectors";
+const Login = lazy(() => import("./components/Login/Login"));
+const ProfileContainer = lazy(() => import('./components/Profile/profileContainer'));
+const Messages = lazy(() => import("./components/Messages/Messages"));
+const News = lazy(() => import("./components/News/News"));
+const Music = lazy(() => import("./components/Music/Music"));
+const Settings = lazy(() => import("./components/Settings/Settings"));
+const FriendsContainer = lazy(() => import("./components/Friends/FriendsContainer"));
+const UsersContainer = lazy(() => import("./components/Users/UsersContainer"));
 
 
 class App extends React.Component {
@@ -24,7 +24,7 @@ class App extends React.Component {
     }
 
     render() {
-        if(!this.props.initialized){
+        if (!this.props.initialized) {
             return <Preloader/>
         }
         return (
@@ -32,19 +32,23 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className="content">
-                    <Route path='/login'
-                           render={() => <Login/>}/>
-                    <Route path='/profile/:userId?'
-                           render={() => <ProfileContainer/>}/>
-                    <Route path='/messages'
-                           render={() => <Messages/>}/>
-                    <Route path='/news' component={News}/>
-                    <Route path='/music' component={Music}/>
-                    <Route path='/settings' component={Settings}/>
-                    <Route path='/friends'
-                           render={() => <FriendsContainer/>}/>
-                    <Route path='/users'
-                           render={() => <UsersContainer/>}/>
+                    <Suspense fallback={<Preloader/>}>
+                        <Switch>
+                            <Route path='/login'
+                                   render={() => <Login/>}/>
+                            <Route path='/profile/:userId?'
+                                   render={() => <ProfileContainer />}/>
+                            <Route path='/messages'
+                                   render={() => <Messages/>}/>
+                            <Route path='/news' component={News}/>
+                            <Route path='/music' component={Music}/>
+                            <Route path='/settings' component={Settings}/>
+                            <Route path='/friends'
+                                   render={() => <FriendsContainer/>}/>
+                            <Route path='/users'
+                                   render={() => <UsersContainer/>}/>
+                        </Switch>
+                    </Suspense>
                 </div>
             </div>
         );

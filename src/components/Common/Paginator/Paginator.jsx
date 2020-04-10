@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import style from "./Paginator.module.css";
 
 let Paginator = (props) => {
-    const {paginatorPortionSize: portionSize} = props;
 
     let pagesQuantity = Math.ceil(props.totalItems / props.pageSize);
     let pages = [];
@@ -11,9 +10,9 @@ let Paginator = (props) => {
     }
 
     const [currentPortion, setCurrentPortion] = useState(1);
-    const portionQuantity = Math.ceil(pagesQuantity / portionSize);
-    const portionLeftBorder = (currentPortion - 1) * portionSize + 1;
-    const portionRightBorder = currentPortion * portionSize;
+    const portionQuantity = Math.ceil(pagesQuantity / props.portionSize);
+    const portionLeftBorder = (currentPortion - 1) * props.portionSize + 1;
+    const portionRightBorder = currentPortion * props.portionSize;
 
     const pagesList = pages
         .filter(p => p >= portionLeftBorder && p <= portionRightBorder)

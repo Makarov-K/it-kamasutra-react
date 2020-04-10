@@ -1,10 +1,10 @@
-import React from "react";
+import React, {memo} from "react";
 import style from './MyPosts.module.css';
 import Post from "./Post/Post";
 import AddPostForm from "./AddPostForm";
 
-let MyPosts = React.memo((props) => {
-    let PostList = props.posts.map(post => <Post message={post.message} likes={post.likes}/>);
+let MyPosts = (props) => {
+    let PostList = props.posts.map(post => <Post key={post.id} message={post.message} likes={post.likes}/>);
 
     let onSubmit = (formData) => {
         props.addPost(formData.newPostText)
@@ -19,6 +19,6 @@ let MyPosts = React.memo((props) => {
             </div>
         </div>
     );
-});
+};
 
-export default MyPosts;
+export default memo(MyPosts);
