@@ -27,7 +27,26 @@ const ProfileInfo = (props) => {
                     {props.profile.lookingForAJob && <img src={needJob}/>}
                     <div className={style.contacts}>
                         <h4>Me in Internet:</h4>
-                        <select>
+                        <Contacts contacts={props.profile.contacts}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+const Contacts = ({contacts}) => {
+    let options = [];
+    for(let prop in contacts){
+        if(contacts[prop] != null){
+            options.push(<option>{contacts[prop]}</option>)
+        }
+    }
+    return(
+        <select>{options}</select>
+    )
+};
+export default ProfileInfo;
+/*<select>
                             {props.profile.contacts.facebook && <option>{props.profile.contacts.facebook}</option>}
                             {props.profile.contacts.website && <option>{props.profile.contacts.website}</option>}
                             {props.profile.contacts.vk && <option>{props.profile.contacts.vk}</option>}
@@ -36,12 +55,4 @@ const ProfileInfo = (props) => {
                             {props.profile.contacts.youtube && <option>{props.profile.contacts.youtube}</option>}
                             {props.profile.contacts.github && <option>{props.profile.contacts.github}</option>}
                             {props.profile.contacts.mainLink && <option>{props.profile.contacts.mainLink}</option>}
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default ProfileInfo;
+                        </select>*/
