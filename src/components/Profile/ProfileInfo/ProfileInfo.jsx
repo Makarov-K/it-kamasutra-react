@@ -8,6 +8,13 @@ import Contacts from "../../Common/Contacts/Contacts";
 
 
 const ProfileInfo = (props) => {
+
+    const onNewAvatarLoad = (e) => {
+      if(e.target.files.length){
+          props.putNewAvatar(e.target.files[0])
+      }
+    };
+
     if (!props.profile) {
         return <Preloader/>
     }
@@ -17,9 +24,10 @@ const ProfileInfo = (props) => {
                  src="https://img1.akspic.ru/image/104850-priroda-formirovanie-nacionalnyj_park-vodotok-dostoprimechatelnost-1920x1200.jpg"/>
             <div className={style.ava_description}>
                 <div className={style.ava}>
-                    <img src={props.profile.photos.large
-                        ? props.profile.photos.large
-                        : defaultPhoto}/>
+                    <img src={props.profile.photos.large || defaultPhoto}/>
+                    {props.authId === props.profile.userId
+                    && <input type='file' onChange={onNewAvatarLoad}/>
+                    }
                 </div>
                 <div className={style.description}>
                     <h3>{props.profile.fullName}</h3>

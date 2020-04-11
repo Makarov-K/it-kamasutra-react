@@ -2,7 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {
-    addPost,
+    addPost, putNewAvatar,
     requestProfile,
     requestProfileStatus,
     updateProfileStatus
@@ -15,26 +15,37 @@ import {getAuthId} from "../../selectors/authSelectors";
 
 
 class ProfileContainer extends React.Component {
-    componentDidMount() {
+
+    refreshProfile = () => {
         let userId = this.props.match.params.userId;
         if (!userId) {
-            this.props.authId ? userId = this.props.authId : userId = null;
+            userId = this.props.authId
         }
         this.props.requestProfile(userId);
         this.props.requestProfileStatus(userId)
+    };
+
+    componentDidMount() {
+        this.refreshProfile()
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.userId !== this.props.match.params.userId) {
-            let userId = this.props.match.params.userId;
-            this.props.requestProfile(userId);
-            this.props.requestProfileStatus(userId)
+            this.refreshProfile()
         }
     }
 
     render() {
         return (
-            <Profile {...this.props}/>
+            <Profile
+                profile={this.props.profile}
+                profileStatus={this.props.profileStatus}
+                updateProfileStatus={this.props.updateProfileStatus}
+                authId={this.props.authId}
+                posts={this.props.posts}
+                addPost={this.props.addPost}
+                putNewAvatar={this.props.putNewAvatar}
+            />
         )
     }
 }
@@ -49,7 +60,8 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-    connect(mapStateToProps, {requestProfile, requestProfileStatus, updateProfileStatus, addPost}),
+    connect(mapStateToProps, {requestProfile, requestProfileStatus, updateProfileStatus,
+        addPost, putNewAvatar}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer);

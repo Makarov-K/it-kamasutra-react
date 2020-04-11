@@ -11,6 +11,7 @@ const Profile = (props) => {
                 profileStatus={props.profileStatus}
                 updateProfileStatus={props.updateProfileStatus}
                 authId={props.authId}
+                putNewAvatar={props.putNewAvatar}
             />
             <MyPosts posts={props.posts} addPost={props.addPost}/>
         </div>

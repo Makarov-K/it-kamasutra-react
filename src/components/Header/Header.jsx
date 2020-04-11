@@ -15,9 +15,7 @@ const Header = (props) => {
                             {props.login}
                         </NavLink>
                     </span>
-                    <img src={props.authProfile.photos.small
-                        ? props.authProfile.photos.small
-                        : defaultPhoto}/>
+                    <img src={props.authProfile.photos.small || defaultPhoto}/>
                 </div>
                 : <div className={style.loginBlock}>
                     <NavLink to='/login'>Login</NavLink>
