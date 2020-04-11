@@ -26,7 +26,7 @@ const ProfileStatus = (props) => {
                     <input onBlur={onDeactivateEditMode} value={profileStatus}
                            autoFocus={true} onChange={onStatusChange}/>
                 </div>
-                : <span onDoubleClick={props.authId === props.profile.userId && onSetEditMode}>
+                : <span onDoubleClick={props.authId === props.profile.userId ? onSetEditMode : undefined}>
                         {props.profileStatus || "What's new?"}</span>}
         </div>
     )
