@@ -33,6 +33,11 @@ class ProfileContainer extends React.Component {
         if (prevProps.match.params.userId !== this.props.match.params.userId) {
             this.refreshProfile()
         }
+        /*if(prevProps.profile){
+            if(prevProps.profile.photos !== this.props.profile.photos){
+                this.refreshProfile()
+            }
+        }*/
     }
 
     render() {
@@ -60,8 +65,10 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-    connect(mapStateToProps, {requestProfile, requestProfileStatus, updateProfileStatus,
-        addPost, putNewAvatar}),
+    connect(mapStateToProps, {
+        requestProfile, requestProfileStatus, updateProfileStatus,
+        addPost, putNewAvatar
+    }),
     withRouter,
     withAuthRedirect
 )(ProfileContainer);
