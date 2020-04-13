@@ -1,3 +1,5 @@
+import {reset} from "redux-form";
+
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {
@@ -9,8 +11,7 @@ let initialState = {
         {id: 1, message: 'Ebobaniy Obama'},
         {id: 2, message: 'Byl bi ty chelovekom'},
         {id: 3, message: 'Tvoyu doch\' eboot'}
-    ],
-    messageText: 'hi'
+    ]
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -22,14 +23,16 @@ const messagesReducer = (state = initialState, action) => {
             };
             return {
                 ...state,
-                messages: [...state.messages, newMessage],
-                messageText: ''
+                messages: [...state.messages, newMessage]
             };
         default:
             return state;
     }
 };
 
-export let sendMessage = (newMessageText) => ({type: SEND_MESSAGE, newMessageText});
+export let sendMessage = (newMessageText) => (dispatch) => {
+    dispatch({type: SEND_MESSAGE, newMessageText});
+    dispatch(reset("sendMessage"))
+};
 
 export default messagesReducer;

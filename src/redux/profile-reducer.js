@@ -1,4 +1,5 @@
 import profileApi from "../DAL/profile-api";
+import {reset} from "redux-form";
 
 const ADD_POST = 'ADD-POST';
 const SET_PROFILE = 'SET_PROFILE';
@@ -47,7 +48,10 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-export let addPost = (newPostText) => ({type: ADD_POST, newPostText});
+export let addPost = (newPostText) => (dispatch) => {
+    dispatch({type: ADD_POST, newPostText});
+    dispatch(reset('addPost'));
+};
 let setProfile = (profile) => ({type: SET_PROFILE, profile});
 let setProfileStatus = (profileStatus) => ({type: SET_PROFILE_STATUS, profileStatus});
 const putNewAvatarSuccess = (photos) => ({type: PUT_NEW_AVATAR_SUCCESS, photos});
