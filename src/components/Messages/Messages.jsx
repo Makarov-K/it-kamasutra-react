@@ -25,10 +25,7 @@ let Messages = (props) => {
                 <div>
                     {MessageList}
                 </div>
-                <SendMessageForm
-                    onSubmit={onSubmit}
-                    messageText={props.messageText}
-                />
+                <SendMessageForm onSubmit={onSubmit}/>
             </div>
         </div>
     );
@@ -36,8 +33,7 @@ let Messages = (props) => {
 
 const mapStateToProps = (state) => ({
     dialogs: state.messagesPage.dialogs,
-    messages: state.messagesPage.messages,
-    messageText: state.messagesPage.messageText
+    messages: state.messagesPage.messages
 });
 
 Messages = compose(

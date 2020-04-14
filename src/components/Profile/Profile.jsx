@@ -13,7 +13,10 @@ const Profile = (props) => {
                 authId={props.authId}
                 putNewAvatar={props.putNewAvatar}
             />
-            <MyPosts posts={props.posts} addPost={props.addPost}/>
+            {props.profile.userId === props.authId
+                ? <MyPosts posts={props.posts} addPost={props.addPost} photo={props.profile.photos.small}/>
+                : null
+            }
         </div>
     );
 };

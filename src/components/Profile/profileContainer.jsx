@@ -12,6 +12,7 @@ import withAuthRedirect from "../../HOC/withAuthRedirect";
 import {compose} from "redux";
 import {getPosts, getProfile, getProfileStatus} from "../../selectors/profileSelectors";
 import {getAuthId} from "../../selectors/authSelectors";
+import Preloader from "../Common/Preloader/Preloader";
 
 
 class ProfileContainer extends React.Component {
@@ -33,14 +34,12 @@ class ProfileContainer extends React.Component {
         if (prevProps.match.params.userId !== this.props.match.params.userId) {
             this.refreshProfile()
         }
-        /*if(prevProps.profile){
-            if(prevProps.profile.photos !== this.props.profile.photos){
-                this.refreshProfile()
-            }
-        }*/
     }
 
     render() {
+        if(!this.props.profile){
+            return <Preloader/>
+        }
         return (
             <Profile
                 profile={this.props.profile}

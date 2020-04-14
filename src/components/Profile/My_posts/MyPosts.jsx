@@ -4,7 +4,8 @@ import Post from "./Post/Post";
 import AddPostForm from "./AddPostForm";
 
 let MyPosts = (props) => {
-    let PostList = props.posts.map(post => <Post key={post.id} message={post.message} likes={post.likes}/>);
+    let PostList = props.posts.map(post =>
+        <Post key={post.id} message={post.message} likes={post.likes} photo={props.photo}/>);
 
     let onSubmit = (formData) => {
         props.addPost(formData.newPostText)

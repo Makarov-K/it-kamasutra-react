@@ -17,8 +17,9 @@ let initialState = {
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
+            let messageKey = state.messages.length +1;
             let newMessage = {
-                id: 4,
+                id: messageKey,
                 message: action.newMessageText
             };
             return {

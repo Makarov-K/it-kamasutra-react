@@ -12,6 +12,10 @@
     padding: 15px;
 }
 
+.ava {
+    max-width: 200px;
+    height: auto;
+}
 .ava img {
     max-width: 150px;
     border-radius: 10px;
@@ -27,6 +31,8 @@
     "fullName aboutMe contacts"
     "status . ."
     ". . lookingForAJob";
+    max-width: 800px;
+    height: auto;
 }
 
 .description h3{
