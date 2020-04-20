@@ -9,6 +9,7 @@
 
 .paginator {
     padding: 10px;
+    cursor: pointer;
 }
 
 .paginator button {
