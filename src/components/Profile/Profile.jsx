@@ -12,6 +12,8 @@ const Profile = (props) => {
                 updateProfileStatus={props.updateProfileStatus}
                 authId={props.authId}
                 putNewAvatar={props.putNewAvatar}
+                saveProfileInfoChanges={props.saveProfileInfoChanges}
+                // profileInfoEditMode={props.profileInfoEditMode}
             />
             {props.profile.userId === props.authId
                 ? <MyPosts posts={props.posts} addPost={props.addPost} photo={props.profile.photos.small}/>

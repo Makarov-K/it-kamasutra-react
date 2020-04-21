@@ -30,8 +30,8 @@ let EditProfileInfoForm = (props) => {
                     <div>
                         Me in Internet: {Object.keys(props.contacts).map(key => {
                         return (
-                            <div>
-                                {`${key}: `}<Field key={key} component={Input} name={`contacts.${key}`}/>
+                            <div key={key}>
+                                {`${key}: `}<Field component={Input} name={`contacts.${key}`}/>
                             </div>
                         )
                     })}

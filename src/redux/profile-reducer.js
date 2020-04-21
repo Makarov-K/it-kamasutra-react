@@ -5,6 +5,7 @@ const ADD_POST = 'ADD-POST';
 const SET_PROFILE = 'SET_PROFILE';
 const SET_PROFILE_STATUS = 'SET_PROFILE_STATUS';
 const PUT_NEW_AVATAR_SUCCESS = 'PUT_NEW_AVATAR_SUCCESS';
+//const SET_PROFILE_INFO_EDIT_MODE = 'SET_PROFILE_INFO_EDIT_MODE';
 
 let initialState = {
     posts: [
@@ -13,7 +14,8 @@ let initialState = {
     ],
     profile: null,
     profileStatus: "",
-    isLookingForAJob: null
+    isLookingForAJob: null,
+    // profileInfoEditMode:
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -44,6 +46,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             };
+        /*case SET_PROFILE_INFO_EDIT_MODE:
+            return {
+                ...state,
+                profileInfoEditMode: action.bool
+            };*/
         default:
             return state;
     }
@@ -56,6 +63,7 @@ export let addPost = (newPostText) => (dispatch) => {
 let setProfile = (profile) => ({type: SET_PROFILE, profile});
 let setProfileStatus = (profileStatus) => ({type: SET_PROFILE_STATUS, profileStatus});
 const putNewAvatarSuccess = (photos) => ({type: PUT_NEW_AVATAR_SUCCESS, photos});
+//const setProfileInfoEditMode = (bool) => ({type: SET_PROFILE_INFO_EDIT_MODE, bool});
 
 export const requestProfile = (userId) => async (dispatch) => {
     dispatch(setProfile(null));
@@ -75,8 +83,15 @@ export const updateProfileStatus = (newStatus) => async (dispatch) => {
 };
 export const putNewAvatar = (newAvatar) => async (dispatch) => {
     const response = await profileApi.putNewAvatar(newAvatar);
-    if(response.data.data.resultCode === 0){
+    if (response.data.data.resultCode === 0) {
         dispatch(putNewAvatarSuccess(response.data.data.photos))
+    }
+};
+export const saveProfileInfoChanges = (profileInfoData) => async (dispatch, getState) => {
+    const response = await profileApi.saveProfileInfoChanges(profileInfoData);
+    let profileId = getState().auth.id;
+    if (response.data.resultCode === 0) {
+        dispatch(requestProfile(profileId))
     }
 };
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import style from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
 import defaultPhoto from '../../../assets/img/lent_54846_big_16.jpg';
@@ -10,6 +10,9 @@ import EditProfileInfoForm from "./EditProfileInfoForm";
 const ProfileInfo = (props) => {
 
     const [editMode, setEditMode] = useState(false);
+    /*useEffect(() => {
+        setEditMode(props.profileInfoEditMode)
+    }, [props.profileInfoEditMode]);*/
 
     const onNewAvatarLoad = (e) => {
         if (e.target.files.length) {
@@ -18,7 +21,8 @@ const ProfileInfo = (props) => {
     };
 
     const onSubmit = (formData) => {
-        console.log(formData)
+        props.saveProfileInfoChanges(formData);
+        setEditMode(false);
     };
 
     if (!props.profile) {
@@ -58,7 +62,7 @@ const ProfileInfo = (props) => {
                     </h4>
                 </div>
                 <div className={style.LookingForAJobDescription}>
-                    <h4>Professional skills: {props.profile.lookingForAJobDescription}</h4>
+                    <p><b>Professional skills: </b>{props.profile.lookingForAJobDescription}</p>
                 </div>
                 <div className={style.contacts}>
                     <h4>Me in Internet: {<Contacts contacts={props.profile.contacts}/>}</h4>
