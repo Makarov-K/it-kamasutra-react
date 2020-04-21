@@ -21,10 +21,14 @@ const ProfileInfo = (props) => {
         console.log(formData)
     };
 
-    if(!props.profile) {return <Preloader/>}
-    if(editMode) {
-        return <EditProfileInfoForm {...props} onNewAvatarLoad={onNewAvatarLoad}
-                                    initialValues={{...props.profile}} onSubmit={onSubmit}/>
+    if (!props.profile) {
+        return <Preloader/>
+    }
+    if (editMode) {
+        return <EditProfileInfoForm contacts={props.profile.contacts}
+                                    initialValues={{...props.profile}}
+                                    onSubmit={onSubmit}
+        />
     }
     return (
         <div className={style.profile_info}>
