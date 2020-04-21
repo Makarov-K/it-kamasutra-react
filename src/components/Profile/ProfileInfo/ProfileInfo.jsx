@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import style from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
 import defaultPhoto from '../../../assets/img/lent_54846_big_16.jpg';
 import ProfileStatus from "./ProfileStatus";
 import Contacts from "../../Common/Contacts/Contacts";
+import EditProfileInfoForm from "./EditProfileInfoForm";
 
 
 const ProfileInfo = (props) => {
+
+    const [editMode, setEditMode] = useState(false);
 
     const onNewAvatarLoad = (e) => {
         if (e.target.files.length) {
@@ -14,9 +17,9 @@ const ProfileInfo = (props) => {
         }
     };
 
-    if (!props.profile) {
-        return <Preloader/>
-    }
+
+    if(!props.profile) {return <Preloader/>}
+    if(editMode) {return <EditProfileInfoForm/>}
     return (
         <div className={style.profile_info}>
             <img className={style.wallpaper}
@@ -26,7 +29,7 @@ const ProfileInfo = (props) => {
                     <img src={props.profile.photos.large || defaultPhoto}/>
                 </div>
                 {props.authId === props.profile.userId &&
-                <div className={style.changeAvatarButton}>
+                <div className={style.changeAvaBtn}>
                     <input type='file' onChange={onNewAvatarLoad}/>
                 </div>
                 }
@@ -53,8 +56,8 @@ const ProfileInfo = (props) => {
                     <h4>Me in Internet: {<Contacts contacts={props.profile.contacts}/>}</h4>
                 </div>
                 {props.authId === props.profile.userId &&
-                <div>
-                    <button>edit</button>
+                <div className={style.editProfile}>
+                    <button onClick={() => setEditMode(true)}>edit</button>
                 </div>
                 }
             </div>

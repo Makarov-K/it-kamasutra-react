@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="">
+    <list default="true" id="ca94a311-1cfe-40e3-8b7a-3d9dea835487" name="Default Changelist" comment="97. css grid for ProfileInfo.jsx">
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/EditProfileInfoForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Common/Paginator/Paginator.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,6 +219,7 @@
       <workItem from="1586954758910" duration="978000" />
       <workItem from="1587132839693" duration="3000" />
       <workItem from="1587405653974" duration="6567000" />
+      <workItem from="1587472301819" duration="8326000" />
     </task>
     <servers />
   </component>
@@ -238,11 +239,19 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="97. css grid for ProfileInfo.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="97. css grid for ProfileInfo.jsx" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="371" y="91" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585394130025">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="91" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1585394130025" />
+    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1587484754625">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1587484754625" />
     <state width="1259" height="163" key="GridCell.Tab.0.bottom" timestamp="1586274577877">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

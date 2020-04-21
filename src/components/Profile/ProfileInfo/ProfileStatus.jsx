@@ -27,7 +27,8 @@ const ProfileStatus = (props) => {
                            autoFocus={true} onChange={onStatusChange}/>
                 </div>
                 : <span onDoubleClick={props.authId === props.profile.userId ? onSetEditMode : undefined}>
-                        {props.profileStatus || "What's new?"}</span>}
+                        {props.profileStatus || "What's new?"}
+                </span>}
         </div>
     )
 };

@@ -7,6 +7,67 @@
     height: 50vh;
 }
 
+.ava_description {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 35% 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "avatar fullName lFAJ"
+    "avatar status lFAJD"
+    "changeAvaBtn aboutMe ."
+    "contacts aboutMe edit";
+    background-color: white;
+}
+
+.ava {
+    grid-area: avatar;
+}
+.ava img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+@media (max-width: 850px) {
+    .ava img {
+        max-width: 150px;
+    }
+}
+.changeAvaBtn {
+    grid-area: changeAvaBtn;
+}
+
+.fullName {
+    grid-area: fullName;
+}
+
+.status {
+    grid-area: status;
+    align-self: start;
+}
+
+.aboutMe {
+    grid-area: aboutMe;
+}
+
+.lookingForAJob {
+    grid-area: lFAJ;
+    justify-self: start;
+}
+.LookingForAJobDescription {
+    grid-area: lFAJD;
+    align-self: start;
+}
+
+.contacts {
+    grid-area: contacts;
+}
+
+.editProfile {
+    grid-area: edit;
+    justify-self: end;
+    align-self: end;
+}
 
 
 
