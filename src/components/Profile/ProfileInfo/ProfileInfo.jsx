@@ -17,9 +17,15 @@ const ProfileInfo = (props) => {
         }
     };
 
+    const onSubmit = (formData) => {
+        console.log(formData)
+    };
 
     if(!props.profile) {return <Preloader/>}
-    if(editMode) {return <EditProfileInfoForm/>}
+    if(editMode) {
+        return <EditProfileInfoForm {...props} onNewAvatarLoad={onNewAvatarLoad}
+                                    initialValues={{...props.profile}} onSubmit={onSubmit}/>
+    }
     return (
         <div className={style.profile_info}>
             <img className={style.wallpaper}
@@ -28,11 +34,9 @@ const ProfileInfo = (props) => {
                 <div className={style.ava}>
                     <img src={props.profile.photos.large || defaultPhoto}/>
                 </div>
-                {props.authId === props.profile.userId &&
                 <div className={style.changeAvaBtn}>
                     <input type='file' onChange={onNewAvatarLoad}/>
                 </div>
-                }
                 <div className={style.fullName}>
                     <h3>{props.profile.fullName}</h3>
                 </div>
@@ -57,7 +61,7 @@ const ProfileInfo = (props) => {
                 </div>
                 {props.authId === props.profile.userId &&
                 <div className={style.editProfile}>
-                    <button onClick={() => setEditMode(true)}>edit</button>
+                    <button onClick={() => setEditMode(true)}>Edit</button>
                 </div>
                 }
             </div>
