@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import style from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
 import defaultPhoto from '../../../assets/img/lent_54846_big_16.jpg';
@@ -9,11 +9,6 @@ import EditProfileInfoForm from "./EditProfileInfoForm";
 
 const ProfileInfo = (props) => {
 
-    const [editMode, setEditMode] = useState(false);
-    /*useEffect(() => {
-        setEditMode(props.profileInfoEditMode)
-    }, [props.profileInfoEditMode]);*/
-
     const onNewAvatarLoad = (e) => {
         if (e.target.files.length) {
             props.putNewAvatar(e.target.files[0])
@@ -22,13 +17,12 @@ const ProfileInfo = (props) => {
 
     const onSubmit = (formData) => {
         props.saveProfileInfoChanges(formData);
-        setEditMode(false);
     };
 
     if (!props.profile) {
         return <Preloader/>
     }
-    if (editMode) {
+    if (props.profileInfoEditMode) {
         return <EditProfileInfoForm contacts={props.profile.contacts}
                                     initialValues={{...props.profile}}
                                     onSubmit={onSubmit}
@@ -69,7 +63,7 @@ const ProfileInfo = (props) => {
                 </div>
                 {props.authId === props.profile.userId &&
                 <div className={style.editProfile}>
-                    <button onClick={() => setEditMode(true)}>Edit</button>
+                    <button onClick={() => props.setProfileInfoEditMode(true)}>Edit</button>
                 </div>
                 }
             </div>

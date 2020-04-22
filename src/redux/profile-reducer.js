@@ -1,11 +1,11 @@
 import profileApi from "../DAL/profile-api";
-import {reset} from "redux-form";
+import {reset, stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD-POST';
 const SET_PROFILE = 'SET_PROFILE';
 const SET_PROFILE_STATUS = 'SET_PROFILE_STATUS';
 const PUT_NEW_AVATAR_SUCCESS = 'PUT_NEW_AVATAR_SUCCESS';
-//const SET_PROFILE_INFO_EDIT_MODE = 'SET_PROFILE_INFO_EDIT_MODE';
+const SET_PROFILE_INFO_EDIT_MODE = 'SET_PROFILE_INFO_EDIT_MODE';
 
 let initialState = {
     posts: [
@@ -15,7 +15,7 @@ let initialState = {
     profile: null,
     profileStatus: "",
     isLookingForAJob: null,
-    // profileInfoEditMode:
+    profileInfoEditMode: false
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -46,11 +46,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             };
-        /*case SET_PROFILE_INFO_EDIT_MODE:
+        case SET_PROFILE_INFO_EDIT_MODE:
             return {
                 ...state,
                 profileInfoEditMode: action.bool
-            };*/
+            };
         default:
             return state;
     }
@@ -63,7 +63,7 @@ export let addPost = (newPostText) => (dispatch) => {
 let setProfile = (profile) => ({type: SET_PROFILE, profile});
 let setProfileStatus = (profileStatus) => ({type: SET_PROFILE_STATUS, profileStatus});
 const putNewAvatarSuccess = (photos) => ({type: PUT_NEW_AVATAR_SUCCESS, photos});
-//const setProfileInfoEditMode = (bool) => ({type: SET_PROFILE_INFO_EDIT_MODE, bool});
+export const setProfileInfoEditMode = (bool) => ({type: SET_PROFILE_INFO_EDIT_MODE, bool});
 
 export const requestProfile = (userId) => async (dispatch) => {
     dispatch(setProfile(null));
@@ -91,7 +91,12 @@ export const saveProfileInfoChanges = (profileInfoData) => async (dispatch, getS
     const response = await profileApi.saveProfileInfoChanges(profileInfoData);
     let profileId = getState().auth.id;
     if (response.data.resultCode === 0) {
-        dispatch(requestProfile(profileId))
+        dispatch(setProfileInfoEditMode(false));
+        dispatch(requestProfile(profileId));
+    }
+    if (response.data.resultCode === 1) {
+        let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : "";
+        dispatch(stopSubmit("EditProfileInfoForm", {_error: errorMessage}))
     }
 };
 

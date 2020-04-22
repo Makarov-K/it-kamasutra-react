@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {
     addPost, putNewAvatar,
     requestProfile,
-    requestProfileStatus, saveProfileInfoChanges,
+    requestProfileStatus, saveProfileInfoChanges, setProfileInfoEditMode,
     updateProfileStatus
 } from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
@@ -50,7 +50,8 @@ class ProfileContainer extends React.Component {
                 addPost={this.props.addPost}
                 putNewAvatar={this.props.putNewAvatar}
                 saveProfileInfoChanges={this.props.saveProfileInfoChanges}
-                // profileInfoEditMode={this.props.profileInfoEditMode}
+                profileInfoEditMode={this.props.profileInfoEditMode}
+                setProfileInfoEditMode={this.props.setProfileInfoEditMode}
             />
         )
     }
@@ -62,14 +63,15 @@ let mapStateToProps = (state) => {
         profileStatus: getProfileStatus(state),
         posts: getPosts(state),
         authId: getAuthId(state),
-        // profileInfoEditMode: state.profilePage.profileInfoEditMode
+        profileInfoEditMode: state.profilePage.profileInfoEditMode
     }
 };
 
 export default compose(
     connect(mapStateToProps, {
         requestProfile, requestProfileStatus, updateProfileStatus,
-        addPost, putNewAvatar, saveProfileInfoChanges
+        addPost, putNewAvatar, saveProfileInfoChanges,
+        setProfileInfoEditMode
     }),
     withRouter,
     withAuthRedirect

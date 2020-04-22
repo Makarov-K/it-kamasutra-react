@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./ProfileInfo.module.css";
+import formStyle from "./../../Common/FormsControls/FormsControls.module.css";
 import {Field, reduxForm} from "redux-form";
 import {Input, Textarea} from "../../Common/FormsControls/FormsControls";
 
@@ -9,36 +10,37 @@ let EditProfileInfoForm = (props) => {
             <img className={style.wallpaper}
                  src="https://img1.akspic.ru/image/104850-priroda-formirovanie-nacionalnyj_park-vodotok-dostoprimechatelnost-1920x1200.jpg"
             />
-            <div className={style.profileInfoForm}>
+            <div className={`${style.profileInfoForm} ${props.error && formStyle.wholeFormError}`}>
                 <div>
-                    <div>
-                        Full Name: <Field name={"fullName"} component={Input}/>
-                    </div>
-                    <br/>
-                    <div>
-                        About me: <Field name={"aboutMe"} component={Textarea}/>
-                    </div>
-                    <br/>
-                    <div>
-                        Looking for a job: <Field name={"lookingForAJob"} component={"input"} type={"checkbox"}/>
-                    </div>
-                    <br/>
-                    <div>
-                        Professional skills: <Field name={"lookingForAJobDescription"} component={Textarea}/>
-                    </div>
-                    <br/>
-                    <div>
-                        Me in Internet: {Object.keys(props.contacts).map(key => {
-                        return (
-                            <div key={key}>
-                                {`${key}: `}<Field component={Input} name={`contacts.${key}`}/>
-                            </div>
-                        )
-                    })}
-                    </div>
-                    <div>
-                        <button>Save</button>
-                    </div>
+                    Full Name: <Field name={"fullName"} component={Input}/>
+                </div>
+                <br/>
+                <div>
+                    About me: <Field name={"aboutMe"} component={Textarea}/>
+                </div>
+                <br/>
+                <div>
+                    Looking for a job: <Field name={"lookingForAJob"} component={"input"} type={"checkbox"}/>
+                </div>
+                <br/>
+                <div>
+                    Professional skills: <Field name={"lookingForAJobDescription"} component={Textarea}/>
+                </div>
+                <br/>
+                <div>
+                    Me in Internet: {Object.keys(props.contacts).map(key => {
+                    return (
+                        <div key={key}>
+                            {`${key}: `}<Field component={Input} name={`contacts.${key}`}/>
+                        </div>
+                    )
+                })}
+                </div>
+                <div className={formStyle.wholeFormErrorText}>
+                    {props.error}
+                </div>
+                <div>
+                    <button>Save</button>
                 </div>
             </div>
         </form>
