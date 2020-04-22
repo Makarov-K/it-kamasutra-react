@@ -3,7 +3,7 @@ import React from "react";
 const Contacts = ({contacts}) => {
     let options = [];
     for (let prop in contacts) {
-        if (contacts[prop] != null) {
+        if (contacts[prop]) {
             options.push(<option key={prop}>{contacts[prop]}</option>)
         }
     }
