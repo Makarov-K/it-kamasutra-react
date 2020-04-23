@@ -19,6 +19,13 @@ let LoginForm = (props) => {
                     <Field component={"input"} name={"rememberMe"} type={"checkbox"}/>
                     <label>Remember me</label>
                 </div>
+                {props.captchaUrl &&
+                <div>
+                    <img src={props.captchaUrl}/>
+                    <Field component={Input} validate={[required]} name={"captcha"}
+                           placeholder={"enter symbols from image"}/>
+                </div>
+                }
                 <div className={style.wholeFormErrorText}>
                     {props.error}
                 </div>

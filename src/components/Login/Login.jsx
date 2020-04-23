@@ -15,13 +15,14 @@ const Login = (props) => {
     return (
         <div>
             <h1>Login</h1>
-            <LoginForm onSubmit={onSubmit}/>
+            <LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>
     )
 };
 
 let mapStateToProps = (state) => ({
     isAuth: getIsAuth(state),
-    authId: getAuthId(state)
+    authId: getAuthId(state),
+    captchaUrl: state.auth.captchaUrl
 });
 export default connect(mapStateToProps,{login})(Login);

@@ -24,6 +24,11 @@ let authApi = {
                     return response.data.resultCode
                 })
         )
+    },
+    getCaptchaUrl() {
+        return (
+            baseAxios.get('security/get-captcha-url')
+        )
     }
 };
 
