@@ -96,14 +96,15 @@ export const saveProfileInfoChanges = (profileInfoData) => async (dispatch, getS
     }
     if (response.data.resultCode === 1) {
         let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : "";
-        /*let tail = errorMessage
+        let tail = errorMessage
             .toLowerCase()
             .slice(30);
+        tail = tail.slice(0, tail.length - 1);
         let erroredContact = Object
             .keys(profileInfoData.contacts)
             .filter(contact => contact === tail)
-            .join("");*/
-        dispatch(stopSubmit("EditProfileInfoForm", {_error: errorMessage}))
+            .join("");
+        dispatch(stopSubmit("EditProfileInfoForm", {"contacts": {[erroredContact]: errorMessage}}));
     }
 };
 

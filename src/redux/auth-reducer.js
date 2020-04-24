@@ -70,8 +70,7 @@ export const login = (loginData) => async (dispatch) => {
     if (data.resultCode === 0) {
         dispatch(getAuthUserData())
     } else if (data.resultCode === 1) {
-        let errorMessage = data.messages.length > 0 ? data.messages[0] : "";
-        dispatch(stopSubmit("login", {_error: errorMessage}))
+        dispatch(stopSubmit("login", {_error: data.messages[0]}))
     } else if (data.resultCode === 10) {
         dispatch(stopSubmit("login", {_error: data.messages[0]}));
         dispatch(requestCaptchaUrl());
