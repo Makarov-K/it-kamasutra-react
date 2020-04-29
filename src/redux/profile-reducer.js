@@ -95,15 +95,13 @@ export const saveProfileInfoChanges = (profileInfoData) => async (dispatch, getS
         dispatch(requestProfile(profileId));
     }
     if (response.data.resultCode === 1) {
-        let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : "";
-        let tail = errorMessage
-            .toLowerCase()
-            .slice(30);
-        tail = tail.slice(0, tail.length - 1);
-        let erroredContact = Object
-            .keys(profileInfoData.contacts)
-            .filter(contact => contact === tail)
-            .join("");
+        let errorMessage = response.data.messages[0].toLowerCase();
+        let erroredContact;
+        for(let contact in profileInfoData.contacts){
+            if(errorMessage.includes(contact)){
+                erroredContact = contact;
+            }
+        }
         dispatch(stopSubmit("EditProfileInfoForm", {"contacts": {[erroredContact]: errorMessage}}));
     }
 };
